@@ -907,6 +907,16 @@ footer {
   }
 
   .glass-radio-group {
+    background: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none;
+    border-radius: 0;
+    overflow: visible;
+    width: auto;
+  }
+
+  .glass-glider {
     display: none;
   }
 
