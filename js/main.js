@@ -65,11 +65,15 @@ navLinks.querySelectorAll('a').forEach(link => {
 
 // ── Glass nav glider (IntersectionObserver) ───────────────────────
 const glider      = document.getElementById('nav-glider');
-const sectionIds  = ['about', 'services', 'ebook', 'contact'];
+const navLinkEls  = document.querySelectorAll('#nav-links li');
+const sectionIds  = ['about', 'services', 'resources-teaser', 'contact'];
 const sections    = sectionIds.map(id => document.getElementById(id));
 
 const moveGlider = (index) => {
-  glider.style.transform = `translateX(${index * 100}%)`;
+  const target = navLinkEls[index];
+  if (!target) return;
+  glider.style.width = `${target.offsetWidth}px`;
+  glider.style.transform = `translateX(${target.offsetLeft}px)`;
   glider.classList.add('visible');
 };
 
