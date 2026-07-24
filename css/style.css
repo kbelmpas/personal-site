@@ -653,7 +653,8 @@ section {
   z-index: 1;
 }
 
-.card-header-row h3 {
+.card-header-row h3,
+.card-header-row .section-label {
   margin-bottom: 0;
 }
 
@@ -895,6 +896,10 @@ section {
 /* ═══════════════════════════════════════════════════════════════════
    RESOURCE GRID (resources.html catalog cards)
 ═══════════════════════════════════════════════════════════════════ */
+.resource-category + .resource-category {
+  margin-top: 4rem;
+}
+
 .resource-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -1056,6 +1061,72 @@ section {
   color: var(--accent);
   border-color: rgba(34, 211, 238, 0.28);
   transform: rotate(90deg);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   PRODUCT LANDING (ekinima.html, anaptixi.html, systima.html)
+═══════════════════════════════════════════════════════════════════ */
+#product-landing {
+  background: var(--bg);
+}
+
+#product-landing .container {
+  max-width: 720px;
+}
+
+.product-title {
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.product-subtitle {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+  font-weight: 500;
+  color: var(--muted);
+  margin-bottom: 1.75rem;
+  line-height: 1.5;
+}
+
+.product-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0 0 3.5rem;
+  padding: 0;
+}
+
+.product-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.product-feature svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+  color: var(--accent);
+}
+
+.product-price-block {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.75rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.product-price {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.4rem, 5vw, 3.2rem);
+  font-weight: 700;
+  color: var(--accent);
 }
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -1233,6 +1304,12 @@ footer {
 
   .resource-grid {
     grid-template-columns: 1fr;
+  }
+
+  .product-price-block {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
   }
 
   .chapter-card {
