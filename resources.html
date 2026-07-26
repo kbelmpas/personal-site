@@ -55,11 +55,11 @@
       <span class="section-label fade-in">Υλικό &amp; Σεμινάρια</span>
 
       <div class="resource-tabs" role="tablist">
-        <button type="button" class="resource-tab" id="tab-students" role="tab" aria-selected="false" aria-controls="panel-students">Για Μαθητές</button>
-        <button type="button" class="resource-tab" id="tab-teachers" role="tab" aria-selected="false" aria-controls="panel-teachers">Για Καθηγητές</button>
+        <a href="#gia-mathites" class="resource-tab" id="tab-students" role="tab" aria-selected="false" aria-controls="gia-mathites">Για Μαθητές</a>
+        <a href="#gia-kathigites" class="resource-tab" id="tab-teachers" role="tab" aria-selected="false" aria-controls="gia-kathigites">Για Καθηγητές</a>
       </div>
 
-      <div class="resource-category resource-panel" id="panel-students" role="tabpanel" aria-labelledby="tab-students">
+      <div class="resource-category resource-panel" id="gia-mathites" role="tabpanel" aria-labelledby="tab-students">
         <span class="section-label fade-in">Για Μαθητές</span>
 
         <div class="resource-grid">
@@ -81,7 +81,7 @@
         </div>
       </div>
 
-      <div class="resource-category resource-panel" id="panel-teachers" role="tabpanel" aria-labelledby="tab-teachers">
+      <div class="resource-category resource-panel" id="gia-kathigites" role="tabpanel" aria-labelledby="tab-teachers">
         <span class="section-label fade-in">Για Καθηγητές</span>
 
         <div class="resource-grid">
@@ -278,8 +278,8 @@
     (function () {
       const tabStudents   = document.getElementById('tab-students');
       const tabTeachers   = document.getElementById('tab-teachers');
-      const panelStudents = document.getElementById('panel-students');
-      const panelTeachers = document.getElementById('panel-teachers');
+      const panelStudents = document.getElementById('gia-mathites');
+      const panelTeachers = document.getElementById('gia-kathigites');
       if (!tabStudents || !tabTeachers || !panelStudents || !panelTeachers) return;
 
       const activate = (tab, panel, otherTab, otherPanel) => {
@@ -291,8 +291,34 @@
         otherTab.setAttribute('aria-selected', 'false');
       };
 
-      tabStudents.addEventListener('click', () => activate(tabStudents, panelStudents, tabTeachers, panelTeachers));
-      tabTeachers.addEventListener('click', () => activate(tabTeachers, panelTeachers, tabStudents, panelStudents));
+      const showFromHash = (scroll) => {
+        const hash = window.location.hash.slice(1);
+        let target = null;
+        if (hash === 'gia-kathigites') {
+          activate(tabTeachers, panelTeachers, tabStudents, panelStudents);
+          target = panelTeachers;
+        } else if (hash === 'gia-mathites') {
+          activate(tabStudents, panelStudents, tabTeachers, panelTeachers);
+          target = panelStudents;
+        }
+        if (scroll && target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      };
+
+      tabStudents.addEventListener('click', (e) => {
+        e.preventDefault();
+        history.pushState(null, '', '#gia-mathites');
+        showFromHash(true);
+      });
+
+      tabTeachers.addEventListener('click', (e) => {
+        e.preventDefault();
+        history.pushState(null, '', '#gia-kathigites');
+        showFromHash(true);
+      });
+
+      window.addEventListener('hashchange', () => showFromHash(true));
+
+      showFromHash(true);
     })();
   </script>
 </body>

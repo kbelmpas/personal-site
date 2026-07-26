@@ -904,10 +904,12 @@ section {
 }
 
 .resource-tab {
+  display: inline-block;
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1.05rem;
   font-weight: 600;
   color: var(--text);
+  text-decoration: none;
   background: transparent;
   border: 1px solid var(--border);
   border-radius: 100px;
@@ -940,6 +942,7 @@ section {
 .resource-panel {
   display: none;
   margin-top: 3rem;
+  scroll-margin-top: calc(var(--nav-h) + 24px);
 }
 
 .resource-panel.panel-active {
