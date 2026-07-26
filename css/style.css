@@ -896,6 +896,56 @@ section {
 /* ═══════════════════════════════════════════════════════════════════
    RESOURCE GRID (resources.html catalog cards)
 ═══════════════════════════════════════════════════════════════════ */
+.resource-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.resource-tab {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 16px 36px;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.resource-tab:hover {
+  border-color: rgba(34, 211, 238, 0.35);
+}
+
+[data-theme="light"] .resource-tab:hover {
+  border-color: rgba(2, 132, 199, 0.35);
+}
+
+.resource-tab.active {
+  color: #000000;
+  font-weight: 900;
+  border-color: transparent;
+  background: linear-gradient(135deg, rgba(34,211,238,0.38) 0%, #22D3EE 100%);
+  box-shadow: 0 0 18px rgba(34,211,238,0.5), inset 0 0 10px rgba(0,200,255,0.3);
+}
+
+[data-theme="light"] .resource-tab.active {
+  background: linear-gradient(135deg, rgba(2,132,199,0.28) 0%, #0284C7 100%);
+  box-shadow: 0 0 14px rgba(2,132,199,0.45), inset 0 0 8px rgba(2,132,199,0.3);
+}
+
+.resource-panel {
+  display: none;
+  margin-top: 3rem;
+}
+
+.resource-panel.panel-active {
+  display: block;
+}
+
 .resource-category + .resource-category {
   margin-top: 4rem;
 }

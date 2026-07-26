@@ -54,7 +54,12 @@
     <div class="container">
       <span class="section-label fade-in">Υλικό &amp; Σεμινάρια</span>
 
-      <div class="resource-category">
+      <div class="resource-tabs" role="tablist">
+        <button type="button" class="resource-tab" id="tab-students" role="tab" aria-selected="false" aria-controls="panel-students">Για Μαθητές</button>
+        <button type="button" class="resource-tab" id="tab-teachers" role="tab" aria-selected="false" aria-controls="panel-teachers">Για Καθηγητές</button>
+      </div>
+
+      <div class="resource-category resource-panel" id="panel-students" role="tabpanel" aria-labelledby="tab-students">
         <span class="section-label fade-in">Για Μαθητές</span>
 
         <div class="resource-grid">
@@ -76,7 +81,7 @@
         </div>
       </div>
 
-      <div class="resource-category">
+      <div class="resource-category resource-panel" id="panel-teachers" role="tabpanel" aria-labelledby="tab-teachers">
         <span class="section-label fade-in">Για Καθηγητές</span>
 
         <div class="resource-grid">
@@ -267,6 +272,27 @@
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
       });
+    })();
+  </script>
+  <script>
+    (function () {
+      const tabStudents   = document.getElementById('tab-students');
+      const tabTeachers   = document.getElementById('tab-teachers');
+      const panelStudents = document.getElementById('panel-students');
+      const panelTeachers = document.getElementById('panel-teachers');
+      if (!tabStudents || !tabTeachers || !panelStudents || !panelTeachers) return;
+
+      const activate = (tab, panel, otherTab, otherPanel) => {
+        panel.classList.add('panel-active');
+        otherPanel.classList.remove('panel-active');
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        otherTab.classList.remove('active');
+        otherTab.setAttribute('aria-selected', 'false');
+      };
+
+      tabStudents.addEventListener('click', () => activate(tabStudents, panelStudents, tabTeachers, panelTeachers));
+      tabTeachers.addEventListener('click', () => activate(tabTeachers, panelTeachers, tabStudents, panelStudents));
     })();
   </script>
 </body>
