@@ -31,7 +31,7 @@ gsap.utils.toArray('.contact-item').forEach((el, i) => {
 });
 
 gsap.utils.toArray('.fade-in').forEach(el => {
-  if (el.closest('.services-grid') || el.closest('.chapters-grid') || el.closest('.contact-links')) return;
+  if (el.closest('.services-grid') || el.closest('.chapters-grid') || el.closest('.contact-links') || el.closest('#closing-cta')) return;
   gsap.from(el, {
     scrollTrigger: { trigger: el, start: 'top 86%', toggleActions: 'play none none none' },
     opacity: 0, y: 20, duration: 0.6, ease: 'power3.out',
