@@ -482,43 +482,17 @@
     }
 
     #parents .container {
-      max-width: 560px;
+      max-width: 900px;
     }
 
-    .parent-card {
-      background: rgba(16, 26, 48, 0.55);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      padding: 1.75rem;
-      text-align: center;
+    .parents-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
     }
 
-    .parent-card h2 {
-      font-size: 1.3rem;
-      margin-bottom: 0.65rem;
-    }
-
-    .parent-text {
-      color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.7;
-      margin-bottom: 1rem;
-    }
-
-    .parent-card .btn {
-      margin-bottom: 1.1rem;
-    }
-
-    .parent-contact {
-      color: var(--muted);
-      font-size: 0.85rem;
-      margin: 0;
-    }
-
-    .parent-contact a {
-      color: var(--accent);
+    .parents-grid .btn {
+      margin-top: 1rem;
     }
 
     #pricing .container {
@@ -615,32 +589,6 @@
       flex-shrink: 0;
     }
 
-    .share-block {
-      margin-top: 1.5rem;
-      text-align: center;
-    }
-
-    .share-text {
-      color: var(--muted);
-      font-size: 0.95rem;
-      margin-bottom: 0.9rem;
-    }
-
-    .share-fallback {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-      margin-top: 0.9rem;
-    }
-
-    .share-copied {
-      color: var(--accent);
-      font-size: 0.85rem;
-      font-weight: 600;
-    }
-
     #faq .container {
       max-width: 720px;
     }
@@ -727,6 +675,10 @@
       }
 
       .example-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .parents-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1013,12 +965,16 @@
 
   <section id="parents">
     <div class="container">
-      <div class="parent-card fade-in">
-        <h2>Για γονείς</h2>
-        <p class="parent-text">Το σεμινάριο είναι περίπου 3 ώρες διδασκαλίας πάνω στο σημείο όπου οι μαθητές χάνουν συχνά μονάδες: τις αιτιολογήσεις στο Β Θέμα. Το παιδί σας το βλέπει όσες φορές χρειαστεί ως τις Πανελλήνιες, μαζί με τις σημειώσεις σε PDF.</p>
-        <p class="parent-text">Στην πληρωμή βάλτε το email όπου θέλετε να έρθει το υλικό, το δικό σας ή του παιδιού σας.</p>
-        <a href="#" data-buy class="btn btn-primary" data-template="Κλείστε θέση με {PRICE}"></a>
-        <p class="parent-contact">Για ερωτήσεις: <a href="#" id="parent-email" data-template="{CONTACT_EMAIL}"></a></p>
+      <div class="parents-grid">
+        <div class="card fade-in">
+          <h3>Είσαι γονιός;</h3>
+          <p>Πάρ' το στο παιδί σου και στήριξέ το τη χρονιά των Πανελληνίων. Περίπου 3 ώρες πάνω στο Β Θέμα, που το βλέπει όσες φορές χρειαστεί ως τον Ιούνιο.</p>
+          <a href="#" data-buy class="btn btn-primary" data-template="Κλείσε θέση με {PRICE}"></a>
+        </div>
+        <div class="card fade-in">
+          <h3>Είσαι μαθητής;</h3>
+          <p>Δείξε αυτή τη σελίδα στους γονείς σου. Ό,τι χρειάζεται να ξέρουν είναι εδώ: τι περιέχει, πότε έρχεται και πόσο κοστίζει.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -1054,16 +1010,6 @@
         <div class="price-payment-icons">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
           <span>Πληρωμή με κάρτα, Apple Pay ή Google Pay μέσω Stripe.<span data-early-bird-only data-template=" Μετά τις 30 θέσεις ή τις 6 Δεκεμβρίου η τιμή γίνεται {OLD_PRICE}."></span></span>
-        </div>
-      </div>
-
-      <div class="share-block fade-in">
-        <p class="share-text">Πληρώνουν οι γονείς σου; Στείλ' τους τη σελίδα.</p>
-        <button type="button" id="share-btn" class="btn btn-outline">Στείλε στους γονείς σου</button>
-        <div class="share-fallback" id="share-fallback" hidden>
-          <a href="#" id="share-whatsapp" target="_blank" rel="noopener" class="btn btn-outline">WhatsApp</a>
-          <button type="button" id="share-copy" class="btn btn-outline">Αντιγραφή συνδέσμου</button>
-          <span class="share-copied" id="share-copied" hidden>Αντιγράφηκε</span>
         </div>
       </div>
     </div>
@@ -1168,44 +1114,6 @@
       var footerEmail = document.getElementById('footer-email');
       if (footerEmail) {
         footerEmail.href = 'mailto:' + cfg.CONTACT_EMAIL;
-      }
-
-      var parentEmail = document.getElementById('parent-email');
-      if (parentEmail) {
-        parentEmail.href = 'mailto:' + cfg.CONTACT_EMAIL;
-      }
-
-      var shareMessage = "Θέλω αυτό το σεμινάριο για τα Β Θέματα της Φυσικής, μπορούμε να το πάρουμε; https://kbelmpas.gr/seminario";
-      var shareBtn = document.getElementById('share-btn');
-      var shareFallback = document.getElementById('share-fallback');
-      var shareWhatsapp = document.getElementById('share-whatsapp');
-      var shareCopy = document.getElementById('share-copy');
-      var shareCopied = document.getElementById('share-copied');
-
-      if (shareWhatsapp) {
-        shareWhatsapp.href = 'https://wa.me/?text=' + encodeURIComponent(shareMessage);
-      }
-
-      if (shareBtn) {
-        shareBtn.addEventListener('click', function () {
-          if (navigator.share) {
-            navigator.share({ text: shareMessage }).catch(function () {});
-          } else if (shareFallback) {
-            shareBtn.hidden = true;
-            shareFallback.hidden = false;
-          }
-        });
-      }
-
-      if (shareCopy) {
-        shareCopy.addEventListener('click', function () {
-          navigator.clipboard.writeText(shareMessage).then(function () {
-            if (shareCopied) {
-              shareCopied.hidden = false;
-              setTimeout(function () { shareCopied.hidden = true; }, 2000);
-            }
-          }).catch(function () {});
-        });
       }
 
       var previewMedia = document.getElementById('preview-media');
