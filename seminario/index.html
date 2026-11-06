@@ -258,6 +258,17 @@
       margin-bottom: 1.1rem;
     }
 
+    .learn-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.9rem;
+    }
+
+    .learn-tags .section-label {
+      margin-bottom: 0;
+    }
+
     .curriculum-list {
       display: flex;
       flex-direction: column;
@@ -284,20 +295,10 @@
       width: 1.6rem;
     }
 
-    .curriculum-text h4 {
-      font-size: 0.98rem;
-      margin-bottom: 0.2rem;
-    }
-
     .curriculum-text p {
-      color: var(--muted);
-      font-size: 0.88rem;
-      margin: 0;
-    }
-
-    .curriculum-text p:only-child {
       color: var(--text);
       font-size: 0.95rem;
+      margin: 0;
     }
 
     .curriculum-note {
@@ -786,7 +787,7 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
           </div>
           <h3>Τα βήματα</h3>
-          <p>Έναν τρόπο να ξεκινάς κάθε Β Θέμα, από όποιο κεφάλαιο κι αν είναι.</p>
+          <p>Πού χάνονται μονάδες, πόσο χρόνο να δώσεις, και ένας τρόπος να ξεκινάς κάθε Β Θέμα.</p>
         </div>
         <div class="card fade-in">
           <div class="get-icon">
@@ -807,9 +808,17 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
           </div>
           <h3>Λυμένα θέματα</h3>
-          <p>Β Θέματα Πανελληνίων από Κβάντο, Ηλεκτρομαγνητισμό, Στερεό και Ταλαντώσεις, λυμένα με τη μέθοδο.</p>
+          <p>Β Θέματα Πανελληνίων λυμένα με τη μέθοδο.</p>
+          <div class="learn-tags">
+            <span class="section-label">Κβάντο</span>
+            <span class="section-label">Ηλεκτρομαγνητισμός</span>
+            <span class="section-label">Στερεό</span>
+            <span class="section-label">Ταλαντώσεις</span>
+          </div>
         </div>
       </div>
+
+      <p class="curriculum-note fade-in">Περίπου 3 ώρες σε ένα βίντεο με χρονοσημάνσεις, και στο τέλος πώς εξασκείσαι μόνος ως τον Ιούνιο.</p>
     </div>
   </section>
 
@@ -841,70 +850,6 @@
       </div>
 
       <p class="preview-caption fade-in">Έτσι μοιάζει το σεμινάριο: γράφω στο tablet και εξηγώ κάθε βήμα.</p>
-    </div>
-  </section>
-
-  <section id="curriculum">
-    <div class="container">
-      <span class="section-label fade-in">Περιεχόμενο</span>
-      <h2 class="fade-in">Τι έχει μέσα</h2>
-
-      <div class="curriculum-list">
-        <div class="curriculum-item fade-in">
-          <span class="curriculum-num">01</span>
-          <div class="curriculum-text">
-            <h4>Τι είναι τα Β Θέματα</h4>
-            <p>Δομή, πού χάνονται μονάδες, πόσο χρόνο να τους δώσεις.</p>
-          </div>
-        </div>
-        <div class="curriculum-item fade-in">
-          <span class="curriculum-num">02</span>
-          <div class="curriculum-text">
-            <h4>Η μέθοδος</h4>
-            <p>Τα βήματα και η αιτιολόγηση για πλήρεις μονάδες.</p>
-          </div>
-        </div>
-        <div class="curriculum-item fade-in">
-          <span class="curriculum-num">03</span>
-          <div class="curriculum-text">
-            <h4>Οι παγίδες</h4>
-            <p>Πώς τις στήνει ο εξεταστής.</p>
-          </div>
-        </div>
-        <div class="curriculum-item fade-in">
-          <span class="curriculum-num">04</span>
-          <div class="curriculum-text">
-            <h4>Θέματα Κβάντο</h4>
-          </div>
-        </div>
-        <div class="curriculum-item fade-in">
-          <span class="curriculum-num">05</span>
-          <div class="curriculum-text">
-            <h4>Θέματα Ηλεκτρομαγνητισμού</h4>
-          </div>
-        </div>
-        <div class="curriculum-item fade-in">
-          <span class="curriculum-num">06</span>
-          <div class="curriculum-text">
-            <h4>Θέματα Στερεού</h4>
-          </div>
-        </div>
-        <div class="curriculum-item fade-in">
-          <span class="curriculum-num">07</span>
-          <div class="curriculum-text">
-            <h4>Θέματα Ταλαντώσεων</h4>
-          </div>
-        </div>
-        <div class="curriculum-item fade-in">
-          <span class="curriculum-num">08</span>
-          <div class="curriculum-text">
-            <h4>Κλείσιμο</h4>
-            <p>Πώς εξασκείσαι μόνος ως τον Ιούνιο.</p>
-          </div>
-        </div>
-      </div>
-
-      <p class="curriculum-note fade-in">Συνολικά περίπου 3 ώρες, σε ένα βίντεο με χρονοσημάνσεις για κάθε ενότητα.</p>
     </div>
   </section>
 
