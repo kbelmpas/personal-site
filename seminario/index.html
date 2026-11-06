@@ -8,13 +8,16 @@
       PRICE_LABEL: "Early-bird · μόνο οι πρώτες 30 θέσεις ή έως 6 Δεκεμβρίου",
       OLD_PRICE: "39€",
       PAYMENT_LINK: "STRIPE_LINK_HERE",
-      EARLY_BIRD: true
+      EARLY_BIRD: true,
+      PREVIEW_VIDEO_URL: "",
+      CONTACT_EMAIL: "CONTACT_EMAIL_HERE",
+      TESTIMONIALS: []
     };
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>Σεμινάριο Β Θεμάτων Φυσικής — Κωνσταντίνος Μπέλμπας</title>
-  <meta name="description" content="Ηχογραφημένο σεμινάριο ~3 ωρών για μαθητές Γ' Λυκείου: μία μέθοδος για κάθε Β Θέμα Φυσικής, οι παγίδες του εξεταστή και αιτιολόγηση για πλήρεις μονάδες." />
+  <title>Σεμινάριο Β Θεμάτων Φυσικής Πανελληνίων | Κωνσταντίνος Μπέλμπας</title>
+  <meta name="description" content="Ηχογραφημένο σεμινάριο περίπου 3 ωρών για τα Β Θέματα Φυσικής Πανελληνίων: μία μέθοδος για κάθε θέμα, οι παγίδες και αιτιολόγηση για πλήρεις μονάδες." />
   <meta property="og:title" content="Β Θέματα Φυσικής: μία μέθοδος για κάθε θέμα" />
   <meta property="og:description" content="Ηχογραφημένο σεμινάριο ~3 ωρών για μαθητές Γ' Λυκείου. Μάθε τη μέθοδο, τις παγίδες και την αιτιολόγηση για πλήρεις μονάδες." />
   <meta property="og:image" content="/images/seminario-og.jpg" />
@@ -97,15 +100,10 @@
       font-size: 1rem;
     }
 
-    .topbar-price-chip {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 600;
+    .topbar-cta {
+      padding: 0.55rem 1.25rem;
       font-size: 0.85rem;
-      color: var(--accent);
-      background: var(--accent-dim);
-      border: 1px solid rgba(0, 180, 216, 0.25);
-      border-radius: 100px;
-      padding: 6px 14px;
+      flex-shrink: 0;
     }
 
     #hero {
@@ -114,7 +112,17 @@
     }
 
     #hero .container {
-      max-width: 760px;
+      max-width: 1120px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-content {
       text-align: center;
     }
 
@@ -138,6 +146,54 @@
     .hero-sub-note {
       color: var(--muted);
       font-size: 0.88rem;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.9rem;
+      margin-top: 2.25rem;
+    }
+
+    .hero-media {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      border: 1px solid rgba(0, 180, 216, 0.22);
+      background: var(--accent-dim);
+    }
+
+    .hero-media img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-media svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      color: var(--accent);
+      padding: 22%;
+      display: none;
+    }
+
+    @media (min-width: 769px) {
+      .hero-grid {
+        grid-template-columns: 1.05fr 0.95fr;
+      }
+
+      .hero-content {
+        text-align: left;
+      }
+
+      .hero-sub {
+        margin: 0 0 2rem;
+      }
     }
 
     .problem-list {
@@ -178,15 +234,6 @@
       grid-template-columns: 1fr 1fr;
       gap: 1.25rem;
       margin-top: 2.5rem;
-    }
-
-    .learn-num {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 1.6rem;
-      color: var(--accent);
-      display: block;
-      margin-bottom: 0.75rem;
     }
 
     .get-icon {
@@ -246,6 +293,40 @@
       text-align: center;
     }
 
+    #preview .container {
+      max-width: 860px;
+    }
+
+    .preview-media {
+      position: relative;
+      margin-top: 2.5rem;
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      border: 1px solid rgba(0, 180, 216, 0.22);
+      background: var(--accent-dim);
+    }
+
+    .preview-media img,
+    .preview-media iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: 0;
+    }
+
+    .preview-media svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      color: var(--accent);
+      padding: 25%;
+      display: none;
+    }
+
     .about-grid {
       display: grid;
       grid-template-columns: 180px 1fr;
@@ -289,6 +370,75 @@
 
     .about-bio strong {
       color: var(--text);
+    }
+
+    #testimonials .container {
+      max-width: 980px;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+
+    .testimonial-text {
+      color: var(--text);
+      font-size: 0.98rem;
+      line-height: 1.7;
+      margin-bottom: 1.1rem;
+    }
+
+    .testimonial-footer {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .testimonial-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .testimonial-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .testimonial-detail {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    #parents .container {
+      max-width: 560px;
+    }
+
+    .parent-card {
+      background: rgba(16, 26, 48, 0.55);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      padding: 1.75rem;
+      text-align: center;
+    }
+
+    .parent-card h3 {
+      margin-bottom: 0.65rem;
+    }
+
+    .parent-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin: 0;
     }
 
     #pricing .container {
@@ -369,6 +519,22 @@
       line-height: 1.6;
     }
 
+    .price-payment-icons {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .price-payment-icons svg {
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
     #faq .container {
       max-width: 720px;
     }
@@ -420,12 +586,39 @@
       font-size: 0.9rem;
     }
 
+    footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem 1.1rem;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
     @media (max-width: 768px) {
       #hero {
         padding-top: calc(64px + 60px);
       }
 
       .learn-grid, .get-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonials-grid {
         grid-template-columns: 1fr;
       }
 
@@ -443,6 +636,12 @@
         padding-bottom: 76px;
       }
     }
+
+    @media (max-width: 480px) {
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body class="seminario-page">
@@ -450,16 +649,40 @@
   <div class="topbar">
     <div class="container">
       <a href="/index.html" class="topbar-brand">Κωνσταντίνος Μπέλμπας</a>
-      <span class="topbar-price-chip" data-template="{PRICE}"></span>
+      <a href="#" data-buy class="btn btn-primary topbar-cta" data-template="Κλείσε θέση"></a>
     </div>
   </div>
 
   <section id="hero">
     <div class="container">
-      <h1 class="hero-title fade-in">Β Θέματα Φυσικής: μία μέθοδος για κάθε θέμα</h1>
-      <p class="hero-sub fade-in">Ηχογραφημένο σεμινάριο περίπου 3 ωρών για μαθητές Γ' Λυκείου. Μαθαίνεις να λύνεις κάθε Β Θέμα με τα ίδια βήματα, να βλέπεις τις παγίδες πριν πέσεις μέσα και να γράφεις αιτιολόγηση που παίρνει πλήρεις μονάδες.</p>
-      <a href="#" data-buy class="btn btn-primary btn-large hero-buy fade-in" data-template="Κλείσε θέση με {PRICE}"></a>
-      <p class="hero-sub-note fade-in"><span data-early-bird-only data-template="{PRICE_LABEL} · "></span>Παράδοση αρχές Δεκεμβρίου</p>
+      <div class="hero-grid">
+        <div class="hero-content">
+          <h1 class="hero-title fade-in">Β Θέματα Φυσικής: μία μέθοδος για κάθε θέμα</h1>
+          <p class="hero-sub fade-in">Ηχογραφημένο σεμινάριο περίπου 3 ωρών για μαθητές Γ' Λυκείου. Μαθαίνεις να λύνεις κάθε Β Θέμα με τα ίδια βήματα, να βλέπεις τις παγίδες πριν πέσεις μέσα και να γράφεις αιτιολόγηση που παίρνει πλήρεις μονάδες.</p>
+          <a href="#" data-buy class="btn btn-primary btn-large hero-buy fade-in" data-template="Κλείσε θέση με {PRICE}"></a>
+          <p class="hero-sub-note fade-in"><span data-early-bird-only data-template="{PRICE_LABEL} · "></span>Παράδοση αρχές Δεκεμβρίου</p>
+
+          <div class="hero-stats fade-in">
+            <div class="stat-item">
+              <span class="stat-number">7M+</span>
+              <span class="stat-label">προβολές στο @kbelmpas</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">100+</span>
+              <span class="stat-label">άτομα έχουν αγοράσει υλικό μου</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">3+ χρόνια</span>
+              <span class="stat-label">διδασκαλία Φυσικής Πανελληνίων</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-media fade-in">
+          <img src="/images/seminario-preview.jpg" alt="Σημειώσεις του σεμιναρίου Β Θεμάτων στο tablet" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" />
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -498,21 +721,41 @@
 
       <div class="learn-grid">
         <div class="card fade-in">
-          <span class="learn-num">01</span>
+          <div class="get-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
           <p>Μία μέθοδο, σταθερά βήματα για κάθε Β Θέμα.</p>
         </div>
         <div class="card fade-in">
-          <span class="learn-num">02</span>
+          <div class="get-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>
+          </div>
           <p>Πώς γράφεται αιτιολόγηση για πλήρεις μονάδες, με παραδείγματα κακής και καλής απάντησης.</p>
         </div>
         <div class="card fade-in">
-          <span class="learn-num">03</span>
+          <div class="get-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
           <p>Τις κλασικές παγίδες: πώς τις στήνει ο εξεταστής και πώς τις αναγνωρίζεις.</p>
         </div>
         <div class="card fade-in">
-          <span class="learn-num">04</span>
+          <div class="get-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
           <p>Β Θέματα Πανελληνίων λυμένα με τη μέθοδο, ανά κεφάλαιο.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="preview">
+    <div class="container">
+      <span class="section-label fade-in">Δες Πώς Δουλεύει</span>
+      <h2 class="fade-in">Δες πώς δουλεύει</h2>
+
+      <div class="preview-media fade-in" id="preview-media">
+        <img src="/images/seminario-preview.jpg" alt="Προεπισκόπηση σεμιναρίου Β Θεμάτων Φυσικής" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" />
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
       </div>
     </div>
   </section>
@@ -623,6 +866,24 @@
     </div>
   </section>
 
+  <section id="testimonials">
+    <div class="container">
+      <span class="section-label fade-in">Μαρτυρίες</span>
+      <h2 class="fade-in">Τι λένε οι μαθητές μου</h2>
+
+      <div class="testimonials-grid" id="testimonials-grid"></div>
+    </div>
+  </section>
+
+  <section id="parents">
+    <div class="container">
+      <div class="parent-card fade-in">
+        <h3>Είσαι γονιός;</h3>
+        <p>Το σεμινάριο κοστίζει όσο λιγότερο από μία ώρα ιδιαίτερο και το παιδί σου το βλέπει όσες φορές χρειαστεί ως τις Πανελλήνιες. Μπορείς να το αγοράσεις εσύ: βάλε το δικό σου email στην πληρωμή και θα σου έρθουν όλα εκεί.</p>
+      </div>
+    </div>
+  </section>
+
   <section id="pricing">
     <div class="container">
       <div class="pricing-card fade-in">
@@ -651,6 +912,11 @@
         <a href="#" data-buy class="btn btn-primary btn-large" data-template="Κλείσε θέση με {PRICE}"></a>
 
         <p class="price-fine">Ασφαλής πληρωμή μέσω Stripe.<br><span data-early-bird-only data-template="Μετά τις 30 θέσεις ή τις 6 Δεκεμβρίου η τιμή γίνεται {OLD_PRICE}."></span></p>
+
+        <div class="price-payment-icons">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          <span>Πληρωμή με κάρτα, Apple Pay, Google Pay μέσω Stripe</span>
+        </div>
       </div>
     </div>
   </section>
@@ -661,6 +927,11 @@
       <h2 class="fade-in">Πριν αποφασίσεις</h2>
 
       <div class="fade-in">
+        <details class="accordion-item">
+          <summary>Για ποιον είναι;<span class="accordion-icon">+</span></summary>
+          <p class="accordion-a">Για μαθητές Γ' Λυκείου που δίνουν Φυσική στις Πανελλήνιες, είτε γράφουν ήδη καλά και χάνουν μονάδες στις αιτιολογήσεις, είτε τα Β Θέματα τους αγχώνουν.</p>
+        </details>
+
         <details class="accordion-item">
           <summary>Πότε το παίρνω;<span class="accordion-icon">+</span></summary>
           <p class="accordion-a">Το σεμινάριο είναι σε προπώληση. Αρχές Δεκεμβρίου σου στέλνω email με το βίντεο και το PDF. Τον Οδηγό Επιβίωσης τον παίρνεις αμέσως μετά την αγορά.</p>
@@ -682,8 +953,13 @@
         </details>
 
         <details class="accordion-item">
+          <summary>Μπορεί να το πληρώσει ο γονιός μου;<span class="accordion-icon">+</span></summary>
+          <p class="accordion-a">Ναι. Ο γονιός σου βάζει το email του ή το δικό σου στην πληρωμή, και το υλικό έρχεται σε αυτό το email.</p>
+        </details>
+
+        <details class="accordion-item">
           <summary>Γίνεται επιστροφή χρημάτων;<span class="accordion-icon">+</span></summary>
-          <p class="accordion-a">Όχι. Γι' αυτό σου λέω από πριν ακριβώς τι περιέχει.</p>
+          <p class="accordion-a">Δες τους <a href="/seminario/oroi">Όρους αγοράς</a>. Σου λέω από πριν ακριβώς τι περιέχει το σεμινάριο, για να ξέρεις τι παίρνεις.</p>
         </details>
 
         <details class="accordion-item">
@@ -702,7 +978,11 @@
   </section>
 
   <footer>
-    <p>© 2026 Κωνσταντίνος Μπέλμπας</p>
+    <p>© 2026 Κωνσταντίνος Μπέλμπας · <a href="https://instagram.com/kbelmpas" target="_blank" rel="noopener">Instagram @kbelmpas</a> · <a href="#" id="footer-email" data-template="{CONTACT_EMAIL}"></a></p>
+    <div class="footer-links">
+      <a href="/seminario/oroi">Όροι αγοράς</a>
+      <a href="/seminario/aporrito">Πολιτική απορρήτου</a>
+    </div>
   </footer>
 
   <div class="sticky-buy">
@@ -725,7 +1005,8 @@
         el.textContent = el.getAttribute('data-template')
           .replace('{PRICE}', activePrice)
           .replace('{OLD_PRICE}', cfg.OLD_PRICE)
-          .replace('{PRICE_LABEL}', cfg.PRICE_LABEL);
+          .replace('{PRICE_LABEL}', cfg.PRICE_LABEL)
+          .replace('{CONTACT_EMAIL}', cfg.CONTACT_EMAIL);
       });
 
       document.querySelectorAll('[data-buy]').forEach(function (el) {
@@ -733,6 +1014,71 @@
         el.target = '_blank';
         el.rel = 'noopener';
       });
+
+      var footerEmail = document.getElementById('footer-email');
+      if (footerEmail) {
+        footerEmail.href = 'mailto:' + cfg.CONTACT_EMAIL;
+      }
+
+      var previewMedia = document.getElementById('preview-media');
+      if (previewMedia && cfg.PREVIEW_VIDEO_URL) {
+        var match = cfg.PREVIEW_VIDEO_URL.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|watch\?v=|shorts\/))([\w-]+)/);
+        var embedUrl = match ? 'https://www.youtube.com/embed/' + match[1] : cfg.PREVIEW_VIDEO_URL;
+        var iframe = document.createElement('iframe');
+        iframe.src = embedUrl;
+        iframe.title = 'Προεπισκόπηση σεμιναρίου Β Θεμάτων Φυσικής';
+        iframe.loading = 'lazy';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.allowFullscreen = true;
+        previewMedia.innerHTML = '';
+        previewMedia.appendChild(iframe);
+      }
+
+      var testimonialsSection = document.getElementById('testimonials');
+      var testimonialsGrid = document.getElementById('testimonials-grid');
+      if (testimonialsSection && testimonialsGrid) {
+        if (!cfg.TESTIMONIALS || cfg.TESTIMONIALS.length === 0) {
+          testimonialsSection.style.display = 'none';
+        } else {
+          cfg.TESTIMONIALS.forEach(function (t) {
+            var card = document.createElement('div');
+            card.className = 'card testimonial-card fade-in';
+
+            var text = document.createElement('p');
+            text.className = 'testimonial-text';
+            text.textContent = '«' + t.text + '»';
+            card.appendChild(text);
+
+            var footer = document.createElement('div');
+            footer.className = 'testimonial-footer';
+
+            if (t.image) {
+              var img = document.createElement('img');
+              img.className = 'testimonial-avatar';
+              img.src = t.image;
+              img.alt = t.name || '';
+              footer.appendChild(img);
+            }
+
+            var names = document.createElement('div');
+            var name = document.createElement('p');
+            name.className = 'testimonial-name';
+            name.textContent = t.name || '';
+            names.appendChild(name);
+
+            if (t.detail) {
+              var detail = document.createElement('p');
+              detail.className = 'testimonial-detail';
+              detail.textContent = t.detail;
+              names.appendChild(detail);
+            }
+
+            footer.appendChild(names);
+            card.appendChild(footer);
+            testimonialsGrid.appendChild(card);
+          });
+        }
+      }
     })();
 
     gsap.registerPlugin(ScrollTrigger);
@@ -741,9 +1087,11 @@
       .from('.hero-title', { opacity: 0, y: 28, duration: 0.7, ease: 'power3.out' })
       .from('.hero-sub', { opacity: 0, y: 16, duration: 0.6, ease: 'power3.out' }, '-=0.3')
       .from('.hero-buy', { opacity: 0, y: 16, duration: 0.5, ease: 'power3.out' }, '-=0.25')
-      .from('.hero-sub-note', { opacity: 0, y: 10, duration: 0.4, ease: 'power3.out' }, '-=0.2');
+      .from('.hero-sub-note', { opacity: 0, y: 10, duration: 0.4, ease: 'power3.out' }, '-=0.2')
+      .from('.hero-stats', { opacity: 0, y: 14, duration: 0.5, ease: 'power3.out' }, '-=0.15')
+      .from('.hero-media', { opacity: 0, scale: 0.96, duration: 0.6, ease: 'power3.out' }, '-=0.4');
 
-    gsap.utils.toArray('.learn-grid .card, .get-grid .card, .curriculum-item').forEach(function (el, i) {
+    gsap.utils.toArray('.learn-grid .card, .get-grid .card, .curriculum-item, .testimonials-grid .card').forEach(function (el, i) {
       gsap.from(el, {
         scrollTrigger: { trigger: el, start: 'top 90%', toggleActions: 'play none none none' },
         opacity: 0, y: 20, duration: 0.5, delay: (i % 4) * 0.08, ease: 'power3.out',
@@ -758,7 +1106,7 @@
     });
 
     gsap.utils.toArray('.fade-in').forEach(function (el) {
-      if (el.closest('.learn-grid') || el.closest('.get-grid') || el.closest('#curriculum') || el.closest('.problem-list') || el.closest('#hero')) return;
+      if (el.closest('.learn-grid') || el.closest('.get-grid') || el.closest('#curriculum') || el.closest('.problem-list') || el.closest('#hero') || el.closest('.testimonials-grid')) return;
       gsap.from(el, {
         scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' },
         opacity: 0, y: 20, duration: 0.6, ease: 'power3.out',
