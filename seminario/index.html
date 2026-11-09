@@ -5,7 +5,7 @@
   <script>
     const SEMINARIO_CONFIG = {
       PRICE: "19€",
-      PRICE_LABEL: "Early-bird · μόνο οι πρώτες 30 θέσεις ή έως 6 Δεκεμβρίου",
+      PRICE_LABEL: "Early-bird · 30 θέσεις ή έως 6 Δεκεμβρίου",
       OLD_PRICE: "39€",
       PAYMENT_LINK: "STRIPE_LINK_HERE",
       EARLY_BIRD: true,
@@ -803,13 +803,7 @@
     }
 
     #pricing .container {
-      max-width: 560px;
-    }
-
-    .price-onetime {
-      color: var(--muted);
-      font-size: 0.8rem;
-      margin-bottom: 0.75rem;
+      max-width: 460px;
     }
 
     .pricing-card {
@@ -841,21 +835,11 @@
     }
 
     .price-row .price-new {
-      font-size: 2.4rem;
+      font-size: clamp(2.6rem, 9vw, 4.6rem);
     }
 
-    .price-label {
-      color: var(--accent);
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    .price-value-note {
-      color: var(--muted);
-      font-size: 0.85rem;
-      line-height: 1.5;
-      margin-bottom: 1.75rem;
+    .pricing-card > .section-label {
+      margin-top: 1rem;
     }
 
     .price-checklist {
@@ -865,7 +849,6 @@
       flex-direction: column;
       gap: 0.7rem;
       margin: 0 auto 2rem;
-      max-width: 360px;
     }
 
     .price-checklist li {
@@ -886,20 +869,11 @@
       width: 100%;
     }
 
-    .price-payment-icons {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
+    .price-fine {
       margin-top: 1rem;
       color: var(--muted);
-      font-size: 0.78rem;
-    }
-
-    .price-payment-icons svg {
-      color: var(--accent);
-      flex-shrink: 0;
+      font-size: 0.8rem;
+      line-height: 1.5;
     }
 
     #faq .container {
@@ -1096,7 +1070,7 @@
       .example-card p,
       .preview-caption,
       .testimonial-text,
-      .price-value-note,
+      .price-fine,
       .price-checklist li,
       .faq-contact,
       .curriculum-note,
@@ -1383,9 +1357,7 @@
           <span class="price-old" data-early-bird-only data-template="{OLD_PRICE}"></span>
           <span class="price-new" data-template="{PRICE}"></span>
         </div>
-        <p class="price-onetime">Εφάπαξ πληρωμή, χωρίς συνδρομή.</p>
-        <p class="price-label" data-early-bird-only data-template="{PRICE_LABEL}"></p>
-        <p class="price-value-note" data-early-bird-only>Λιγότερο από μία ώρα ιδιαίτερο, για περίπου 3 ώρες που βλέπεις όσες φορές θέλεις.</p>
+        <span class="section-label" data-early-bird-only data-template="{PRICE_LABEL}"></span>
 
         <ul class="price-checklist">
           <li>
@@ -1404,10 +1376,7 @@
 
         <a href="#" data-buy class="btn btn-primary btn-large" data-template="Κλείδωσε θέση με {PRICE}"></a>
 
-        <div class="price-payment-icons">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-          <span>Πληρωμή με κάρτα, Apple Pay ή Google Pay μέσω Stripe.<span data-early-bird-only data-template=" Μετά τις 30 θέσεις ή τις 6 Δεκεμβρίου η τιμή γίνεται {OLD_PRICE}."></span></span>
-        </div>
+        <p class="price-fine">Εφάπαξ πληρωμή με κάρτα, Apple Pay ή Google Pay.<span data-early-bird-only data-template=" Μετά η τιμή γίνεται {OLD_PRICE}."></span></p>
       </div>
     </div>
   </section>
