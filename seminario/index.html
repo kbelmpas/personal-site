@@ -12,7 +12,6 @@
       PREVIEW_VIDEO_URL: "",
       HERO_VIDEO_URL: "",
       CONTACT_EMAIL: "CONTACT_EMAIL_HERE",
-      CLUB_LINK: "CLUB_LINK_HERE",
       TESTIMONIALS: [
         {
           text: "Ο κύριος Κωνσταντίνος με βοήθησε να καταλάβω ότι η Φυσική δεν είναι απλά παπαγαλία. Με τη μέθοδό του πήγα από το 12 στο 18!",
@@ -1418,7 +1417,7 @@
 
         <details class="accordion-item">
           <summary>Γιατί προπώληση;<span class="accordion-icon">+</span></summary>
-          <p class="accordion-a">Το σεμινάριο το ηχογραφώ τον Νοέμβριο. Όσοι κλείνουν θέση τώρα το παίρνουν στη χαμηλότερη τιμή και βλέπουν πώς φτιάχνεται στο <a href="#" id="club-link" target="_blank" rel="noopener">Newtonaki Club</a>, το κανάλι μου στο Instagram.</p>
+          <p class="accordion-a">Η μέθοδος υπάρχει ήδη: τη δουλεύω με τους μαθητές μου στα ιδιαίτερα. Αυτές τις εβδομάδες τη γράφω σε βίντεο, και όσοι κλείνουν θέση νωρίς την παίρνουν στη χαμηλότερη τιμή. Μέχρι να έρθει, έχεις αμέσως τον Οδηγό Επιβίωσης Φυσικής.</p>
         </details>
 
         <details class="accordion-item">
@@ -1501,11 +1500,6 @@
       var footerEmail = document.getElementById('footer-email');
       if (footerEmail) {
         footerEmail.href = 'mailto:' + cfg.CONTACT_EMAIL;
-      }
-
-      var clubLink = document.getElementById('club-link');
-      if (clubLink) {
-        clubLink.href = cfg.CLUB_LINK;
       }
 
       var previewMedia = document.getElementById('preview-media');
