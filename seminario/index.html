@@ -233,24 +233,6 @@
       font-size: 0.88rem;
     }
 
-    .hero-facts {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.2rem 0;
-      margin-top: 0.9rem;
-      color: var(--accent);
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .hero-facts span:not(:last-child)::after {
-      content: '·';
-      margin: 0 0.5rem;
-    }
-
     .hero-stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -326,10 +308,6 @@
       }
 
       .hero-badges {
-        justify-content: flex-start;
-      }
-
-      .hero-facts {
         justify-content: flex-start;
       }
 
@@ -1120,20 +1098,13 @@
       <div class="hero-grid">
         <div class="hero-content">
           <div class="hero-badges fade-in">
-            <span class="section-label">Προπώληση · Φυσική Πανελληνίων</span>
-            <span class="section-label">Γ' Λυκείου</span>
+            <span class="section-label">Προπώληση · Γ' Λυκείου</span>
           </div>
           <h1 class="hero-title fade-in">Λύσε κάθε Β Θέμα Φυσικής με τα ίδια βήματα</h1>
           <p class="hero-sub fade-in">Σεμινάριο περίπου 3 ωρών για τη Γ' Λυκείου. Μαθαίνεις να βλέπεις τις παγίδες που στήνει ο εξεταστής και να γράφεις αιτιολόγηση που παίρνει όλες τις μονάδες.</p>
           <a href="#" data-buy class="btn btn-primary btn-large hero-buy fade-in" data-template="Κλείσε θέση με {PRICE}"></a>
           <p class="hero-gift fade-in">🎁 Δώρο ο Οδηγός Επιβίωσης Φυσικής (αξίας 9,99€)</p>
           <p class="hero-sub-note fade-in" data-early-bird-only>Early-bird μόνο για τις πρώτες 30 θέσεις ή έως 6 Δεκεμβρίου. Μετά 39€.</p>
-
-          <div class="hero-facts fade-in">
-            <span>Περίπου 3 ώρες</span>
-            <span>Πρόσβαση για πάντα</span>
-            <span>Εφάπαξ πληρωμή</span>
-          </div>
 
           <div class="hero-stats fade-in">
             <div class="stat-item">
@@ -1323,8 +1294,8 @@
           <img src="/assets/konstantinos.jpg.webp" alt="Κωνσταντίνος Μπέλμπας" />
         </div>
         <div>
-          <p class="about-bio">Είμαι ο <strong>Κωνσταντίνος Μπέλμπας</strong>, τελειόφοιτος Φυσικής στο ΕΚΠΑ. Διδάσκω Φυσική Πανελληνίων πάνω από 5 χρόνια, εργάστηκα ως καθηγητής στον μεγαλύτερο όμιλο φροντιστηρίων της Ελλάδας και εργάζομαι σε online ιδιαίτερα με μαθητές απ' όλη την Ελλάδα.</p>
-          <p class="about-bio">Στο σεμινάριο σου δίνω τη μέθοδο για τα Β Θέματα που δουλεύω με τους μαθητές μου στα ιδιαίτερα, σε περίπου 3 ώρες.</p>
+          <p class="about-bio">Είμαι ο <strong>Κωνσταντίνος Μπέλμπας</strong>, τελειόφοιτος Φυσικής στο ΕΚΠΑ, και διδάσκω Φυσική Πανελληνίων online σε μαθητές απ' όλη την Ελλάδα.</p>
+          <p class="about-bio">Στο σεμινάριο βάζω τη μέθοδο που δουλεύω με τους μαθητές μου στα ιδιαίτερα.</p>
         </div>
       </div>
     </div>
@@ -1438,11 +1409,6 @@
       <h2 class="fade-in">Πριν αποφασίσεις</h2>
 
       <div class="fade-in">
-        <details class="accordion-item">
-          <summary>Πότε το παίρνω;<span class="accordion-icon">+</span></summary>
-          <p class="accordion-a">Τον Οδηγό Επιβίωσης αμέσως μετά την πληρωμή. Το βίντεο και το PDF σου έρχονται με email αρχές Δεκεμβρίου.</p>
-        </details>
-
         <details class="accordion-item">
           <summary>Γιατί προπώληση;<span class="accordion-icon">+</span></summary>
           <p class="accordion-a">Η μέθοδος υπάρχει ήδη: τη δουλεύω με τους μαθητές μου στα ιδιαίτερα. Αυτές τις εβδομάδες τη γράφω σε βίντεο, και όσοι κλείνουν θέση νωρίς την παίρνουν στη χαμηλότερη τιμή. Μέχρι να έρθει, έχεις αμέσως τον Οδηγό Επιβίωσης Φυσικής.</p>
@@ -1753,7 +1719,6 @@
       .from('.hero-buy', { y: 16, duration: 0.5, ease: 'power3.out' }, '-=0.25')
       .from('.hero-gift', { opacity: 0, y: 10, duration: 0.4, ease: 'power3.out' }, '-=0.2')
       .from('.hero-sub-note', { opacity: 0, y: 10, duration: 0.4, ease: 'power3.out' }, '-=0.2')
-      .from('.hero-facts', { opacity: 0, y: 10, duration: 0.4, ease: 'power3.out' }, '-=0.2')
       .from('.hero-stats', { opacity: 0, y: 14, duration: 0.5, ease: 'power3.out' }, '-=0.15')
       .from('.hero-media', { opacity: 0, scale: 0.96, duration: 0.6, ease: 'power3.out' }, '-=0.4');
 
