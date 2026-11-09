@@ -169,6 +169,18 @@
       text-align: center;
     }
 
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-badges .section-label {
+      margin-bottom: 0;
+    }
+
     .hero-title {
       font-size: clamp(2.1rem, 5vw, 3.1rem);
       line-height: 1.18;
@@ -239,6 +251,10 @@
 
       .hero-content {
         text-align: left;
+      }
+
+      .hero-badges {
+        justify-content: flex-start;
       }
 
       .hero-sub {
@@ -919,9 +935,12 @@
     <div class="container">
       <div class="hero-grid">
         <div class="hero-content">
-          <span class="section-label fade-in">Προπώληση · Φυσική Πανελληνίων</span>
+          <div class="hero-badges fade-in">
+            <span class="section-label">Προπώληση · Φυσική Πανελληνίων</span>
+            <span class="section-label">Α' · Β' · Γ' Λυκείου</span>
+          </div>
           <h1 class="hero-title fade-in">Λύσε κάθε Β Θέμα Φυσικής με τα ίδια βήματα</h1>
-          <p class="hero-sub fade-in">Σεμινάριο περίπου 3 ωρών για όποιον δίνει Φυσική στις Πανελλήνιες. Μαθαίνεις μία μέθοδο για κάθε Β Θέμα, βλέπεις τις παγίδες που στήνει ο εξεταστής και γράφεις αιτιολόγηση που παίρνει όλες τις μονάδες.</p>
+          <p class="hero-sub fade-in">Σεμινάριο περίπου 3 ωρών για μαθητές Α', Β' και Γ' Λυκείου. Μαθαίνεις μία μέθοδο για κάθε Β Θέμα, βλέπεις τις παγίδες που στήνει ο εξεταστής και γράφεις αιτιολόγηση που παίρνει όλες τις μονάδες, από τα διαγωνίσματα του σχολείου μέχρι τις Πανελλήνιες.</p>
           <a href="#" data-buy class="btn btn-primary btn-large hero-buy fade-in" data-template="Κλείσε θέση με {PRICE}"></a>
           <p class="hero-gift fade-in">🎁 Δώρο ο Οδηγός Επιβίωσης Φυσικής (αξίας 9,99€)</p>
           <p class="hero-sub-note fade-in" data-early-bird-only>Early-bird μόνο για τις πρώτες 30 θέσεις ή έως 6 Δεκεμβρίου. Μετά 39€.</p>
@@ -1479,7 +1498,7 @@
     gsap.registerPlugin(ScrollTrigger);
 
     gsap.timeline({ delay: 0.1 })
-      .from('#hero .section-label', { opacity: 0, y: 10, duration: 0.5, ease: 'power3.out' })
+      .from('.hero-badges', { opacity: 0, y: 10, duration: 0.5, ease: 'power3.out' })
       .from('.hero-title', { opacity: 0, y: 28, duration: 0.7, ease: 'power3.out' }, '-=0.3')
       .from('.hero-sub', { opacity: 0, y: 16, duration: 0.6, ease: 'power3.out' }, '-=0.3')
       .from('.hero-buy', { y: 16, duration: 0.5, ease: 'power3.out' }, '-=0.25')
