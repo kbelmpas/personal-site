@@ -329,9 +329,14 @@
       width: 1.6rem;
     }
 
+    .curriculum-text h4 {
+      font-size: 0.98rem;
+      margin-bottom: 0.2rem;
+    }
+
     .curriculum-text p {
-      color: var(--text);
-      font-size: 0.95rem;
+      color: var(--muted);
+      font-size: 0.88rem;
       margin: 0;
     }
 
@@ -340,6 +345,16 @@
       color: var(--muted);
       font-size: 0.9rem;
       text-align: center;
+    }
+
+    .after-purchase-cta {
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+
+    .after-purchase-cta .curriculum-note {
+      margin-top: 0;
+      margin-bottom: 1.25rem;
     }
 
     #preview .container {
@@ -1024,27 +1039,35 @@
   <section id="after-purchase">
     <div class="container">
       <span class="section-label fade-in">Μετά Την Αγορά</span>
-      <h2 class="fade-in">Τι γίνεται μετά την αγορά</h2>
+      <h2 class="fade-in">Κλείνεις θέση σήμερα, ξεκινάς σήμερα</h2>
 
       <div class="curriculum-list">
         <div class="curriculum-item fade-in">
           <span class="curriculum-num">01</span>
           <div class="curriculum-text">
-            <p>Κλείνεις θέση με κάρτα, Apple Pay ή Google Pay.</p>
+            <h4>Κλειδώνεις τα 19€</h4>
+            <p>Πληρώνεις με κάρτα, Apple Pay ή Google Pay. Η early-bird τιμή ισχύει για τις πρώτες 30 θέσεις ή έως 6 Δεκεμβρίου. Μετά το σεμινάριο κοστίζει 39€.</p>
           </div>
         </div>
         <div class="curriculum-item fade-in">
           <span class="curriculum-num">02</span>
           <div class="curriculum-text">
-            <p>Αμέσως σου έρχεται στο email ο Οδηγός Επιβίωσης Φυσικής.</p>
+            <h4>Παίρνεις δώρο τον Οδηγό Επιβίωσης Φυσικής</h4>
+            <p>Κανονικά κοστίζει 9,99€. Με το σεμινάριο τον παίρνεις δωρεάν, στο email σου, αμέσως μετά την πληρωμή.</p>
           </div>
         </div>
         <div class="curriculum-item fade-in">
           <span class="curriculum-num">03</span>
           <div class="curriculum-text">
-            <p>Αρχές Δεκεμβρίου σου έρχεται το σεμινάριο: το βίντεο και το PDF με τις σημειώσεις.</p>
+            <h4>Αρχές Δεκεμβρίου παίρνεις όλο το σεμινάριο</h4>
+            <p>Θα λάβεις ένα email με το βίντεο, περίπου 3 ώρες χωρισμένες σε ενότητες με χρονοσημάνσεις, και το PDF με όλες τις σημειώσεις. Το ξαναβλέπεις όσες φορές θες μέχρι τις Πανελλήνιες.</p>
           </div>
         </div>
+      </div>
+
+      <div class="after-purchase-cta fade-in">
+        <p class="curriculum-note">Το σεμινάριο είναι σε προπώληση. Πληρώνεις 19€ αντί για 39,99€.</p>
+        <a href="#" data-buy class="btn btn-primary" data-template="Κλείσε θέση με {PRICE}"></a>
       </div>
     </div>
   </section>
