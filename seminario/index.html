@@ -186,6 +186,13 @@
       margin-bottom: 0.9rem;
     }
 
+    .hero-gift {
+      color: var(--text);
+      font-weight: 700;
+      font-size: 0.92rem;
+      margin-bottom: 0.35rem;
+    }
+
     .hero-sub-note {
       color: var(--muted);
       font-size: 0.88rem;
@@ -914,22 +921,23 @@
         <div class="hero-content">
           <span class="section-label fade-in">Προπώληση · Φυσική Πανελληνίων</span>
           <h1 class="hero-title fade-in">Λύσε κάθε Β Θέμα Φυσικής με τα ίδια βήματα</h1>
-          <p class="hero-sub fade-in">Σεμινάριο περίπου 3 ωρών για τη Γ' Λυκείου. Μαθαίνεις να βλέπεις τις παγίδες που στήνει ο εξεταστής και να γράφεις αιτιολόγηση που παίρνει όλες τις μονάδες.</p>
+          <p class="hero-sub fade-in">Σεμινάριο περίπου 3 ωρών για όποιον δίνει Φυσική στις Πανελλήνιες. Μαθαίνεις μία μέθοδο για κάθε Β Θέμα, βλέπεις τις παγίδες που στήνει ο εξεταστής και γράφεις αιτιολόγηση που παίρνει όλες τις μονάδες.</p>
           <a href="#" data-buy class="btn btn-primary btn-large hero-buy fade-in" data-template="Κλείσε θέση με {PRICE}"></a>
-          <p class="hero-sub-note fade-in"><span data-early-bird-only data-template="{PRICE_LABEL} · "></span>Το σεμινάριο έρχεται στο email σου αρχές Δεκεμβρίου</p>
+          <p class="hero-gift fade-in">🎁 Δώρο ο Οδηγός Επιβίωσης Φυσικής (αξίας 9,99€)</p>
+          <p class="hero-sub-note fade-in" data-early-bird-only>Early-bird μόνο για τις πρώτες 30 θέσεις ή έως 6 Δεκεμβρίου. Μετά 39€.</p>
 
           <div class="hero-stats fade-in">
             <div class="stat-item">
-              <span class="stat-number">7M+</span>
-              <span class="stat-label">προβολές στο @kbelmpas</span>
+              <span class="stat-number">~3 ώρες</span>
+              <span class="stat-label">βίντεο με χρονοσημάνσεις</span>
             </div>
             <div class="stat-item">
-              <span class="stat-number">100+</span>
-              <span class="stat-label">άτομα έχουν αγοράσει υλικό μου</span>
+              <span class="stat-number">4 κεφάλαια</span>
+              <span class="stat-label">λυμένα Β Θέματα Πανελληνίων</span>
             </div>
             <div class="stat-item">
-              <span class="stat-number">3+</span>
-              <span class="stat-label">χρόνια διδασκαλίας Φυσικής Πανελληνίων</span>
+              <span class="stat-number">1 μέθοδος</span>
+              <span class="stat-label">για κάθε Β Θέμα</span>
             </div>
           </div>
         </div>
@@ -1190,6 +1198,11 @@
         <details class="accordion-item">
           <summary>Για ποιον είναι;<span class="accordion-icon">+</span></summary>
           <p class="accordion-a">Για μαθητές Γ' Λυκείου που δίνουν Φυσική στις Πανελλήνιες. Ταιριάζει και σε όσους γράφουν καλά αλλά χάνουν μονάδες στις αιτιολογήσεις, και σε όσους τα Β Θέματα τούς αγχώνουν.</p>
+        </details>
+
+        <details class="accordion-item">
+          <summary>Είμαι στη Β' Λυκείου, μου κάνει;<span class="accordion-icon">+</span></summary>
+          <p class="accordion-a">Ναι, αν θες να ξεκινήσεις νωρίς. Τα θέματα είναι από την ύλη της Γ', οπότε θα σου φανεί πιο χρήσιμο όταν τα κάνεις στο σχολείο.</p>
         </details>
 
         <details class="accordion-item">
@@ -1470,6 +1483,7 @@
       .from('.hero-title', { opacity: 0, y: 28, duration: 0.7, ease: 'power3.out' }, '-=0.3')
       .from('.hero-sub', { opacity: 0, y: 16, duration: 0.6, ease: 'power3.out' }, '-=0.3')
       .from('.hero-buy', { y: 16, duration: 0.5, ease: 'power3.out' }, '-=0.25')
+      .from('.hero-gift', { opacity: 0, y: 10, duration: 0.4, ease: 'power3.out' }, '-=0.2')
       .from('.hero-sub-note', { opacity: 0, y: 10, duration: 0.4, ease: 'power3.out' }, '-=0.2')
       .from('.hero-stats', { opacity: 0, y: 14, duration: 0.5, ease: 'power3.out' }, '-=0.15')
       .from('.hero-media', { opacity: 0, scale: 0.96, duration: 0.6, ease: 'power3.out' }, '-=0.4');
