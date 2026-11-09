@@ -681,22 +681,23 @@
       font-size: 0.8rem;
     }
 
-    #parents .container {
-      max-width: 900px;
-    }
-
-    .parents-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
-    }
-
-    .parents-grid .btn {
-      margin-top: 1rem;
-    }
-
     #pricing .container {
       max-width: 560px;
+    }
+
+    .pricing-audience {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .pricing-audience strong {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .pricing-audience--last {
+      margin-bottom: 1.5rem;
     }
 
     .pricing-card {
@@ -892,10 +893,6 @@
       }
 
       .example-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .parents-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1166,24 +1163,11 @@
     </div>
   </section>
 
-  <section id="parents">
-    <div class="container">
-      <div class="parents-grid">
-        <div class="card fade-in">
-          <h3>Είσαι γονιός;</h3>
-          <p>Πάρ' το στο παιδί σου και στήριξέ το τη χρονιά των Πανελληνίων. Περίπου 3 ώρες πάνω στο Β Θέμα, που το βλέπει όσες φορές χρειαστεί ως τον Ιούνιο.</p>
-          <a href="#" data-buy class="btn btn-primary" data-template="Κλείσε θέση με {PRICE}"></a>
-        </div>
-        <div class="card fade-in">
-          <h3>Είσαι μαθητής;</h3>
-          <p>Δείξε αυτή τη σελίδα στους γονείς σου. Ό,τι χρειάζεται να ξέρουν είναι εδώ: τι περιέχει, πότε έρχεται και πόσο κοστίζει.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section id="pricing">
     <div class="container">
+      <p class="pricing-audience fade-in"><strong>Είσαι γονιός;</strong> Πάρ' το στο παιδί σου και στήριξέ το τη χρονιά των Πανελληνίων.</p>
+      <p class="pricing-audience pricing-audience--last fade-in"><strong>Είσαι μαθητής;</strong> Δείξε αυτή τη σελίδα στους γονείς σου.</p>
+
       <div class="pricing-card fade-in">
         <h3>Σεμινάριο Β Θεμάτων Φυσικής</h3>
         <div class="price-row">
