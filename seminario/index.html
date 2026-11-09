@@ -50,13 +50,6 @@
       EXAMPLE: { bad: "", good: "" }
     };
 
-    SEMINARIO_CONFIG.FINAL_TITLE = SEMINARIO_CONFIG.EARLY_BIRD
-      ? "Οι θέσεις στα 19€ είναι 30"
-      : "Ξεκίνα τα Β Θέματα με μέθοδο";
-
-    SEMINARIO_CONFIG.FINAL_TEXT = SEMINARIO_CONFIG.EARLY_BIRD
-      ? "Μετά η τιμή γίνεται 39€. Κλείσε τη δική σου και ο Οδηγός Επιβίωσης έρχεται στο email σου αμέσως."
-      : "Ο Οδηγός Επιβίωσης έρχεται στο email σου αμέσως μετά την πληρωμή.";
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
@@ -930,21 +923,59 @@
     }
 
     #final-cta {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
+      overflow: hidden;
+    }
+
+    #final-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: radial-gradient(ellipse 60% 55% at 50% 50%, rgba(10, 15, 30, 0.88) 0%, rgba(10, 15, 30, 0.55) 60%, rgba(10, 15, 30, 0.25) 100%);
+      pointer-events: none;
+    }
+
+    .final-cta-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      display: block;
     }
 
     #final-cta .container {
-      max-width: 640px;
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
     }
 
     #final-cta h2 {
+      font-size: clamp(2.3rem, 6vw, 3.6rem);
+      line-height: 1.15;
       margin-bottom: 1rem;
     }
 
-    .final-cta-text {
+    .final-cta-note {
       color: var(--muted);
-      font-size: 1.02rem;
-      margin-bottom: 1.75rem;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .final-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0.9rem 2.25rem;
+      border-radius: 100px;
+      font-size: 1.05rem;
     }
 
     .sticky-buy {
@@ -1445,10 +1476,12 @@
   </section>
 
   <section id="final-cta">
+    <canvas class="final-cta-canvas" id="final-cta-canvas" aria-hidden="true"></canvas>
     <div class="container">
-      <h2 class="fade-in" data-template="{FINAL_TITLE}"></h2>
-      <p class="final-cta-text fade-in" data-template="{FINAL_TEXT}"></p>
-      <a href="#" data-buy class="btn btn-primary btn-large fade-in" data-template="Κλείσε θέση με {PRICE}"></a>
+      <span class="section-label fade-in">Σεμινάριο Β Θεμάτων</span>
+      <h2 class="fade-in">Μία μέθοδος. Κάθε Β Θέμα.<br>Όλες οι μονάδες.</h2>
+      <p class="final-cta-note fade-in" data-early-bird-only data-template="Οι θέσεις στα {PRICE} είναι 30. Μετά η τιμή γίνεται {OLD_PRICE}."></p>
+      <a href="#" data-buy class="btn btn-primary final-cta-btn fade-in" data-template="{PRICE} · Κλείδωσέ το"></a>
     </div>
   </section>
 
@@ -1480,9 +1513,7 @@
           .replace('{PRICE}', activePrice)
           .replace('{OLD_PRICE}', cfg.OLD_PRICE)
           .replace('{PRICE_LABEL}', cfg.PRICE_LABEL)
-          .replace('{CONTACT_EMAIL}', cfg.CONTACT_EMAIL)
-          .replace('{FINAL_TITLE}', cfg.FINAL_TITLE)
-          .replace('{FINAL_TEXT}', cfg.FINAL_TEXT);
+          .replace('{CONTACT_EMAIL}', cfg.CONTACT_EMAIL);
       });
 
       document.querySelectorAll('[data-buy]').forEach(function (el) {
@@ -1708,6 +1739,140 @@
           renderCarousel();
         }
       }
+    })();
+
+    (function () {
+      var canvas = document.getElementById('final-cta-canvas');
+      var section = document.getElementById('final-cta');
+      if (!canvas || !section) return;
+
+      var ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      var symbols = ['F', 'm', 'a', 'v', 'ω', 'λ', 'θ', 'φ', 'Φ', 'B', 'E', 'ε', 'τ', 'Σ', 'Δ', '∑F', 'Δx', 'E=hf', 'p=mv', 'L=Iω', '±', '√', '∫', 'π', 'ħ', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+      var fontSize = 16;
+      var lineHeight = fontSize * 1.4;
+      var baseMinAlpha = 0.15;
+      var baseMaxAlpha = 0.35;
+      var leadAlpha = 0.5;
+
+      var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var width = 0, height = 0, columns = [];
+      var rafId = null;
+      var isVisible = false;
+
+      function randomSymbol() {
+        return symbols[Math.floor(Math.random() * symbols.length)];
+      }
+
+      function randomSpeed() {
+        return 0.5 + Math.random() * 1.4;
+      }
+
+      function buildColumns() {
+        var colWidth = fontSize * 1.6;
+        var count = Math.max(4, Math.floor(width / colWidth));
+        if (window.innerWidth <= 768) {
+          count = Math.max(3, Math.floor(count * 0.5));
+        }
+
+        var rows = Math.ceil(height / lineHeight) + 2;
+
+        columns = [];
+        for (var i = 0; i < count; i++) {
+          var chars = [];
+          var alphas = [];
+          for (var r = 0; r < rows; r++) {
+            chars.push(randomSymbol());
+            alphas.push(r === 0 ? leadAlpha : baseMinAlpha + Math.random() * (baseMaxAlpha - baseMinAlpha));
+          }
+          columns.push({
+            x: i * colWidth + colWidth / 2,
+            offsetY: Math.random() * rows * lineHeight,
+            speed: randomSpeed(),
+            chars: chars,
+            alphas: alphas,
+            rows: rows
+          });
+        }
+      }
+
+      function resize() {
+        width = canvas.width = canvas.offsetWidth;
+        height = canvas.height = canvas.offsetHeight;
+        buildColumns();
+      }
+
+      function drawFrame(animated) {
+        ctx.clearRect(0, 0, width, height);
+        ctx.font = fontSize + 'px monospace';
+
+        for (var i = 0; i < columns.length; i++) {
+          var col = columns[i];
+          var totalHeight = col.rows * lineHeight;
+          for (var r = 0; r < col.rows; r++) {
+            var y = ((r * lineHeight + col.offsetY) % totalHeight) - lineHeight;
+            if (y < -lineHeight || y > height + lineHeight) continue;
+            ctx.fillStyle = 'rgba(0, 180, 216, ' + col.alphas[r].toFixed(2) + ')';
+            ctx.fillText(col.chars[r], col.x, y);
+          }
+          if (animated) {
+            col.offsetY += col.speed;
+          }
+        }
+      }
+
+      function tick() {
+        if (!isVisible) return;
+        drawFrame(true);
+        rafId = requestAnimationFrame(tick);
+      }
+
+      function start() {
+        if (prefersReducedMotion || rafId) return;
+        rafId = requestAnimationFrame(tick);
+      }
+
+      function stop() {
+        if (rafId) {
+          cancelAnimationFrame(rafId);
+          rafId = null;
+        }
+      }
+
+      resize();
+      drawFrame(false);
+
+      if (prefersReducedMotion) {
+        window.addEventListener('resize', function () {
+          resize();
+          drawFrame(false);
+        });
+        return;
+      }
+
+      if (window.IntersectionObserver) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            isVisible = entry.isIntersecting;
+            if (isVisible) start();
+            else stop();
+          });
+        }, { threshold: 0.1 });
+        observer.observe(section);
+      } else {
+        isVisible = true;
+        start();
+      }
+
+      var resizeTimer;
+      window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () {
+          resize();
+          if (!isVisible) drawFrame(false);
+        }, 200);
+      });
     })();
 
     gsap.registerPlugin(ScrollTrigger);
