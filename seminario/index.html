@@ -11,6 +11,7 @@
       EARLY_BIRD: true,
       PREVIEW_VIDEO_URL: "",
       CONTACT_EMAIL: "CONTACT_EMAIL_HERE",
+      CLUB_LINK: "CLUB_LINK_HERE",
       TESTIMONIALS: [
         {
           text: "Ο κύριος Κωνσταντίνος με βοήθησε να καταλάβω ότι η Φυσική δεν είναι απλά παπαγαλία. Με τη μέθοδό του πήγα από το 12 στο 18!",
@@ -798,6 +799,13 @@
       color: var(--accent);
     }
 
+    .faq-contact {
+      margin-top: 1.5rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
     #final-cta {
       text-align: center;
     }
@@ -1180,7 +1188,7 @@
         <ul class="price-checklist">
           <li>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>Βίντεο περίπου 3 ωρών, σε 8 ενότητες με χρονοσημάνσεις</span>
+            <span>Βίντεο περίπου 3 ωρών με χρονοσημάνσεις, με πρόσβαση για πάντα</span>
           </li>
           <li>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -1214,13 +1222,13 @@
         </details>
 
         <details class="accordion-item">
-          <summary>Είμαι στη Β' Λυκείου, μου κάνει;<span class="accordion-icon">+</span></summary>
-          <p class="accordion-a">Ναι, αν θες να ξεκινήσεις νωρίς. Τα θέματα είναι από την ύλη της Γ', οπότε θα σου φανεί πιο χρήσιμο όταν τα κάνεις στο σχολείο.</p>
+          <summary>Πότε το παίρνω;<span class="accordion-icon">+</span></summary>
+          <p class="accordion-a">Τον Οδηγό Επιβίωσης αμέσως μετά την πληρωμή. Το βίντεο και το PDF σου έρχονται με email αρχές Δεκεμβρίου.</p>
         </details>
 
         <details class="accordion-item">
-          <summary>Πότε το παίρνω;<span class="accordion-icon">+</span></summary>
-          <p class="accordion-a">Τον Οδηγό Επιβίωσης αμέσως μετά την πληρωμή. Το βίντεο και το PDF σου έρχονται με email αρχές Δεκεμβρίου.</p>
+          <summary>Γιατί προπώληση;<span class="accordion-icon">+</span></summary>
+          <p class="accordion-a">Το σεμινάριο το ηχογραφώ τον Νοέμβριο. Όσοι κλείνουν θέση τώρα το παίρνουν στη χαμηλότερη τιμή και βλέπουν πώς φτιάχνεται στο <a href="#" id="club-link" target="_blank" rel="noopener">Newtonaki Club</a>, το κανάλι μου στο Instagram.</p>
         </details>
 
         <details class="accordion-item">
@@ -1230,7 +1238,7 @@
 
         <details class="accordion-item">
           <summary>Για πόσο έχω πρόσβαση;<span class="accordion-icon">+</span></summary>
-          <p class="accordion-a">Τουλάχιστον ως τις Πανελλήνιες 2027. Το βλέπεις όσες φορές θέλεις.</p>
+          <p class="accordion-a">Για πάντα. Το βλέπεις όσες φορές θέλεις, όποτε θέλεις.</p>
         </details>
 
         <details class="accordion-item">
@@ -1244,15 +1252,17 @@
         </details>
 
         <details class="accordion-item">
-          <summary>Γίνεται επιστροφή χρημάτων;<span class="accordion-icon">+</span></summary>
-          <p class="accordion-a">Δες τους <a href="/seminario/oroi">Όρους αγοράς</a>.</p>
+          <summary>Είμαι στη Β' Λυκείου, μου κάνει;<span class="accordion-icon">+</span></summary>
+          <p class="accordion-a">Το σεμινάριο είναι φτιαγμένο για τις Πανελλήνιες της Γ' Λυκείου, οπότε μεγάλο μέρος της ύλης δεν το έχεις κάνει ακόμα. Αν θες να ξεκινήσεις νωρίς, στείλε μου μήνυμα και θα σου πω αν σε βοηθάει από τώρα.</p>
         </details>
 
         <details class="accordion-item">
-          <summary>Έχω κι άλλη ερώτηση.<span class="accordion-icon">+</span></summary>
-          <p class="accordion-a">Στείλε μου μήνυμα στο Instagram <a href="https://instagram.com/kbelmpas" target="_blank" rel="noopener">@kbelmpas</a>.</p>
+          <summary>Γίνεται επιστροφή χρημάτων;<span class="accordion-icon">+</span></summary>
+          <p class="accordion-a">Όχι. Γι' αυτό σου λέω από πριν ακριβώς τι περιέχει, πότε έρχεται και τι παίρνεις αμέσως. Δες και τους <a href="/seminario/oroi">Όρους αγοράς</a>.</p>
         </details>
       </div>
+
+      <p class="faq-contact fade-in">Έχεις άλλη ερώτηση; Στείλε μου μήνυμα στο Instagram <a href="https://instagram.com/kbelmpas" target="_blank" rel="noopener">@kbelmpas</a>.</p>
     </div>
   </section>
 
@@ -1306,6 +1316,11 @@
       var footerEmail = document.getElementById('footer-email');
       if (footerEmail) {
         footerEmail.href = 'mailto:' + cfg.CONTACT_EMAIL;
+      }
+
+      var clubLink = document.getElementById('club-link');
+      if (clubLink) {
+        clubLink.href = cfg.CLUB_LINK;
       }
 
       var previewMedia = document.getElementById('preview-media');
