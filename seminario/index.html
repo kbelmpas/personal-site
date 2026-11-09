@@ -227,48 +227,35 @@
       font-size: 0.88rem;
     }
 
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      margin-top: 1.75rem;
-      background: rgba(16, 26, 48, 0.55);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      padding: 1.1rem 0.5rem;
+    .hero-trust {
+      margin-top: 24px;
     }
 
-    .hero-stats-col {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.2rem;
-      text-align: center;
-      min-width: 0;
-      border-left: 1px solid var(--border);
-    }
-
-    .hero-stats-col:first-child {
-      border-left: none;
-    }
-
-    .hero-stats-num {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: clamp(1.3rem, 2.5vw, 1.7rem);
-      color: var(--accent);
-      line-height: 1;
-    }
-
-    .hero-stats-label {
+    .hero-trust-quote {
+      font-style: italic;
+      font-size: 0.92rem;
+      line-height: 1.6;
       color: var(--muted);
-      font-size: clamp(0.58rem, 2vw, 0.78rem);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 100%;
+    }
+
+    .hero-trust-stars {
+      font-style: normal;
+      color: var(--accent);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      margin-right: 0.45rem;
+    }
+
+    .hero-trust-quote strong {
+      font-style: normal;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .hero-trust-note {
+      margin-top: 0.3rem;
+      color: var(--muted);
+      font-size: 0.8rem;
     }
 
     .hero-media {
@@ -1190,19 +1177,9 @@
           <p class="hero-gift fade-in">🎁 Δώρο ο Οδηγός Επιβίωσης Φυσικής (αξίας 9,99€)</p>
           <p class="hero-sub-note fade-in" data-early-bird-only>Early-bird μόνο για τις πρώτες 30 θέσεις ή έως 6 Δεκεμβρίου. Μετά 39€.</p>
 
-          <div class="hero-stats fade-in">
-            <div class="hero-stats-col">
-              <span class="hero-stats-num">7M+</span>
-              <span class="hero-stats-label">προβολές</span>
-            </div>
-            <div class="hero-stats-col">
-              <span class="hero-stats-num">100+</span>
-              <span class="hero-stats-label">αγοραστές</span>
-            </div>
-            <div class="hero-stats-col">
-              <span class="hero-stats-num">3+</span>
-              <span class="hero-stats-label">χρόνια διδασκαλίας</span>
-            </div>
+          <div class="hero-trust fade-in">
+            <p class="hero-trust-quote"><span class="hero-trust-stars" aria-hidden="true">★★★★★</span>«Με τη μέθοδό του πήγα <strong>από το 12 στο 18</strong>!» — Μαρία Κ., Γ' Λυκείου</p>
+            <p class="hero-trust-note">100+ άτομα έχουν ήδη αγοράσει υλικό μου</p>
           </div>
         </div>
 
@@ -1937,7 +1914,7 @@
       .from('.hero-buy', { y: 16, duration: 0.5, ease: 'power3.out' }, '-=0.25')
       .from('.hero-gift', { opacity: 0, y: 10, duration: 0.4, ease: 'power3.out' }, '-=0.2')
       .from('.hero-sub-note', { opacity: 0, y: 10, duration: 0.4, ease: 'power3.out' }, '-=0.2')
-      .from('.hero-stats', { opacity: 0, y: 14, duration: 0.5, ease: 'power3.out' }, '-=0.15')
+      .from('.hero-trust', { opacity: 0, y: 14, duration: 0.5, ease: 'power3.out' }, '-=0.15')
       .from('.hero-media', { opacity: 0, scale: 0.96, duration: 0.6, ease: 'power3.out' }, '-=0.4');
 
     gsap.utils.toArray('.learn-grid .card, .curriculum-item').forEach(function (el, i) {
