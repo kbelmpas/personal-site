@@ -13,24 +13,37 @@
       CONTACT_EMAIL: "CONTACT_EMAIL_HERE",
       TESTIMONIALS: [
         {
-          text: "Ο κύριος Κωνσταντίνος με βοήθησε να καταλάβω ότι η Φυσική δεν είναι απλά παπαγαλία. Με τη μέθοδό του πήγα <strong>από το 12 στο 18</strong>!",
+          text: "Ο κύριος Κωνσταντίνος με βοήθησε να καταλάβω ότι η Φυσική δεν είναι απλά παπαγαλία. Με τη μέθοδό του πήγα από το 12 στο 18!",
           name: "Μαρία Κ.",
-          detail: "Γ' Λυκείου"
+          detail: "Γ' Λυκείου",
+          highlight: "από το 12 στο 18"
         },
         {
-          text: "Ο κ. Κωνσταντίνος σε κάνει να καταλαβαίνεις ότι η Φυσική δεν είναι μόνο τύποι, αλλά βρίσκει εφαρμογές παντού. Πήγα <strong>από το 9 στο 16</strong>.",
+          text: "Πήρα με δισταγμό τον Οδηγό Επιβίωσης στη Φυσική, αλλά τελικά το παιδί μου βοηθήθηκε πολύ στις Πανελλήνιες του 2026.",
+          name: "Παναγιώτης",
+          detail: "πατέρας",
+          highlight: "βοηθήθηκε πολύ στις Πανελλήνιες του 2026"
+        },
+        {
+          text: "Ο κ. Κωνσταντίνος σε κάνει να καταλαβαίνεις ότι η Φυσική δεν είναι μόνο τύποι, αλλά βρίσκει εφαρμογές παντού. Πήγα από το 9 στο 16.",
           name: "Κώστας",
-          detail: "Γ' Λυκείου"
+          detail: "Γ' Λυκείου",
+          highlight: "από το 9 στο 16"
         },
         {
           text: "Αν και νέος, ο Κωνσταντίνος εμπνέει μια σιγουριά και κάνει τα παιδιά να προσπαθήσουν περισσότερο.",
           name: "Γιώργος",
-          detail: "πατέρας μαθητή"
+          detail: "πατέρας"
         },
         {
-          text: "Η μετάβαση από το Γυμνάσιο είναι δύσκολη, αλλά με τον Κωνσταντίνο όλα βάδισαν σωστά.",
-          name: "Μαρία",
-          detail: "μητέρα μαθητή Α' Λυκείου"
+          text: "Στην αρχή ήμουν διστακτική με τα online μαθήματα, αλλά ο μικρός τα έχει λατρέψει. Οι μετακινήσεις πέρα-δώθε σταμάτησαν, κάτι πολύ σημαντικό για εμάς. Αυτό που ξεχωρίζω είναι η οργάνωσή του, τόσο στο μάθημα όσο και στη συνεργασία μας.",
+          name: "Κατερίνα",
+          detail: "μητέρα"
+        },
+        {
+          text: "Κάνουμε μάθημα με τον Κωνσταντίνο από παλιά, όταν δίδασκε ακόμα δια ζώσης. Πλέον συνεχίζουμε online λόγω της μετακόμισής του. Η μικρή μου δεν δέχεται άλλον καθηγητή και μετράει πολύ τη γνώμη του.",
+          name: "Ορέστης",
+          detail: "πατέρας"
         }
       ],
       EXAMPLE: { bad: "", good: "" }
@@ -1271,6 +1284,19 @@
           var isPaused = false;
           var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+          function escapeHtml(str) {
+            return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+          }
+
+          function highlightText(t) {
+            var safeText = escapeHtml(t.text);
+            if (t.highlight) {
+              var safeHighlight = escapeHtml(t.highlight);
+              safeText = safeText.split(safeHighlight).join('<strong>' + safeHighlight + '</strong>');
+            }
+            return safeText;
+          }
+
           items.forEach(function (t, i) {
             var wrap = document.createElement('div');
             wrap.className = 'carousel-card';
@@ -1283,7 +1309,7 @@
 
             var text = document.createElement('p');
             text.className = 'testimonial-text';
-            text.innerHTML = '«' + t.text + '»';
+            text.innerHTML = '«' + highlightText(t) + '»';
             card.appendChild(text);
 
             var footer = document.createElement('div');
