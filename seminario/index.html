@@ -11,7 +11,6 @@
       EARLY_BIRD: true,
       PREVIEW_VIDEO_URL: "",
       HERO_VIDEO_URL: "",
-      CONTACT_EMAIL: "CONTACT_EMAIL_HERE",
       TESTIMONIALS: [
         {
           text: "Ο κύριος Κωνσταντίνος με βοήθησε να καταλάβω ότι η Φυσική δεν είναι απλά παπαγαλία. Με τη μέθοδό του πήγα από το 12 στο 18!",
@@ -993,12 +992,12 @@
       gap: 0.5rem 1.1rem;
     }
 
-    .footer-links a {
+    footer a {
       color: var(--muted);
       text-decoration: none;
     }
 
-    .footer-links a:hover {
+    footer a:hover {
       color: var(--accent);
     }
 
@@ -1432,7 +1431,7 @@
   </section>
 
   <footer>
-    <p>© 2026 Κωνσταντίνος Μπέλμπας · <a href="https://instagram.com/kbelmpas" target="_blank" rel="noopener">Instagram @kbelmpas</a> · <a href="#" id="footer-email" data-template="{CONTACT_EMAIL}"></a></p>
+    <p>© 2026 Κωνσταντίνος Μπέλμπας · <a href="https://instagram.com/kbelmpas" target="_blank" rel="noopener">Instagram @kbelmpas</a></p>
     <div class="footer-links">
       <a href="/seminario/oroi">Όροι & Απόρρητο</a>
     </div>
@@ -1459,7 +1458,6 @@
           .replace('{PRICE}', activePrice)
           .replace('{OLD_PRICE}', cfg.OLD_PRICE)
           .replace('{PRICE_LABEL}', cfg.PRICE_LABEL)
-          .replace('{CONTACT_EMAIL}', cfg.CONTACT_EMAIL)
           .replace('{STEP1_TITLE}', step1Title);
       });
 
@@ -1468,11 +1466,6 @@
         el.target = '_blank';
         el.rel = 'noopener';
       });
-
-      var footerEmail = document.getElementById('footer-email');
-      if (footerEmail) {
-        footerEmail.href = 'mailto:' + cfg.CONTACT_EMAIL;
-      }
 
       var previewMedia = document.getElementById('preview-media');
       if (previewMedia && cfg.PREVIEW_VIDEO_URL) {
