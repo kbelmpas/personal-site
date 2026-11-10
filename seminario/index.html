@@ -219,7 +219,7 @@
     }
 
     .hero-buy {
-      margin-bottom: 16px;
+      margin-bottom: 24px;
     }
 
     .hero-gift {
@@ -232,6 +232,50 @@
     .hero-sub-note {
       color: var(--muted);
       font-size: 0.88rem;
+    }
+
+    .hero-trust {
+      margin-top: 24px;
+      text-align: left;
+    }
+
+    .hero-trust-quote {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.45rem;
+      margin: 0;
+    }
+
+    .hero-trust-stars {
+      color: var(--accent);
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      flex-shrink: 0;
+    }
+
+    .hero-trust-quote-text {
+      font-style: italic;
+      font-size: 0.88rem;
+      color: #A8B3C7;
+      line-height: 1.5;
+    }
+
+    .hero-trust-quote-text strong {
+      font-style: normal;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .hero-trust-name {
+      font-style: normal;
+      color: var(--muted);
+    }
+
+    .hero-trust-count {
+      margin: 0.3rem 0 0;
+      color: var(--muted);
+      font-size: 0.8rem;
     }
 
     .hero-media {
@@ -1108,6 +1152,13 @@
           <p class="hero-gift fade-in">🎁 Δώρο ο Οδηγός Επιβίωσης Φυσικής (αξίας 9,99€)</p>
           <p class="hero-sub-note fade-in" data-early-bird-only>Early-bird μόνο για τις πρώτες 30 θέσεις ή έως 6 Δεκεμβρίου. Μετά 39€.</p>
 
+          <div class="hero-trust fade-in">
+            <p class="hero-trust-quote">
+              <span class="hero-trust-stars" aria-hidden="true">★★★★★</span>
+              <span class="hero-trust-quote-text">«Με τη μέθοδό του πήγα από το <strong>12 στο 18</strong>!» — <span class="hero-trust-name">Μαρία Κ., Γ' Λυκείου</span></span>
+            </p>
+            <p class="hero-trust-count">100+ άτομα έχουν ήδη αγοράσει υλικό μου</p>
+          </div>
         </div>
 
         <div class="hero-media fade-in" id="hero-media">
@@ -1863,6 +1914,7 @@
       .from('.hero-buy', { y: 16, duration: 0.5, ease: 'power3.out' }, '-=0.25')
       .from('.hero-gift', { opacity: 0, y: 10, duration: 0.4, ease: 'power3.out' }, '-=0.2')
       .from('.hero-sub-note', { opacity: 0, y: 10, duration: 0.4, ease: 'power3.out' }, '-=0.2')
+      .from('.hero-trust', { opacity: 0, y: 10, duration: 0.4, ease: 'power3.out' }, '-=0.2')
       .from('.hero-media', { opacity: 0, scale: 0.96, duration: 0.6, ease: 'power3.out' }, '-=0.4');
 
     gsap.utils.toArray('.learn-grid .card, .curriculum-item').forEach(function (el, i) {
