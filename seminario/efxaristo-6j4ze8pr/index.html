@@ -4,8 +4,7 @@
   <meta charset="UTF-8" />
   <script>
     const THANKS_CONFIG = {
-      GUIDE_LINK: "GUIDE_LINK_HERE",
-      CLUB_LINK: "CLUB_LINK_HERE"
+      GUIDE_LINK: "GUIDE_LINK_HERE"
     };
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -131,18 +130,17 @@
       margin-bottom: 1.5rem;
     }
 
+    .thanks-next {
+      margin-bottom: 2.5rem;
+    }
+
     .thanks-next h2 {
       margin-bottom: 1rem;
     }
 
     .thanks-next p {
       color: var(--muted);
-      margin-bottom: 1rem;
-    }
-
-    .thanks-next .btn {
-      margin-top: 0.5rem;
-      margin-bottom: 3rem;
+      margin-bottom: 0;
     }
 
     .thanks-note {
@@ -201,7 +199,7 @@
 <body class="seminario-page">
 
   <div class="topbar">
-    <a href="/index.html" class="topbar-brand">
+    <a href="/index.html" class="topbar-brand" target="_blank" rel="noopener">
       <span class="topbar-dot" aria-hidden="true"></span>
       <span class="topbar-brand-full">Σεμινάριο Β Θεμάτων Φυσικής</span>
       <span class="topbar-brand-short">Β Θέματα</span>
@@ -211,7 +209,7 @@
   <section id="thanks">
     <div class="container thanks-container">
       <h1 class="thanks-title">Η θέση σου είναι κλειδωμένη</h1>
-      <p class="thanks-lead">Ευχαριστώ! Η πληρωμή ολοκληρώθηκε και η απόδειξη έρχεται στο email σου.</p>
+      <p class="thanks-lead">Ευχαριστώ! Η πληρωμή ολοκληρώθηκε και η επιβεβαίωση έρχεται στο email σου.</p>
 
       <div class="card thanks-gift-card">
         <h3>🎁 Το δώρο σου</h3>
@@ -222,8 +220,6 @@
       <div class="thanks-next">
         <h2>Τι ακολουθεί</h2>
         <p>Αρχές Δεκεμβρίου σου στέλνω το σεμινάριο, το βίντεο και το PDF, στο email που έδωσες στην πληρωμή. Αν δεν το βρεις, κοίτα στα Ανεπιθύμητα.</p>
-        <p>Μέχρι τότε, δες πώς φτιάχνεται στο Newtonaki Club.</p>
-        <a href="#" id="club-link" target="_blank" rel="noopener" class="btn btn-outline">Μπες στο Newtonaki Club</a>
       </div>
 
       <p class="thanks-note">Αν χάσεις αυτή τη σελίδα ή κάτι δεν δουλεύει, στείλε μου μήνυμα στο Instagram <a href="https://instagram.com/kbelmpas" target="_blank" rel="noopener">@kbelmpas</a>.</p>
@@ -233,7 +229,7 @@
   <footer>
     <p>© 2026 Κωνσταντίνος Μπέλμπας · <a href="https://instagram.com/kbelmpas" target="_blank" rel="noopener">Instagram @kbelmpas</a></p>
     <div class="footer-links">
-      <a href="/seminario/oroi">Όροι & Απόρρητο</a>
+      <a href="/seminario/oroi/" target="_blank" rel="noopener">Όροι & Απόρρητο</a>
     </div>
   </footer>
 
@@ -241,9 +237,6 @@
     (function () {
       var guideLink = document.getElementById('guide-link');
       if (guideLink) guideLink.href = THANKS_CONFIG.GUIDE_LINK;
-
-      var clubLink = document.getElementById('club-link');
-      if (clubLink) clubLink.href = THANKS_CONFIG.CLUB_LINK;
     })();
   </script>
 
