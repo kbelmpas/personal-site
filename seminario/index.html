@@ -238,14 +238,32 @@
       font-size: 0.88rem;
     }
 
+    .hero-media-wrap {
+      position: relative;
+    }
+
     .hero-media {
       position: relative;
       border-radius: 20px;
       overflow: hidden;
-      aspect-ratio: 4 / 3;
+      aspect-ratio: 1090 / 893;
       border: 1px solid rgba(0, 180, 216, 0.22);
       background: var(--accent-dim);
       box-shadow: 0 8px 50px rgba(0, 180, 216, 0.22);
+    }
+
+    .hero-media-avatar {
+      position: absolute;
+      right: -24px;
+      bottom: -24px;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 30%;
+      border: 3px solid var(--accent);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+      z-index: 2;
     }
 
     .hero-media img {
@@ -265,19 +283,24 @@
       position: absolute;
       top: 12px;
       right: 12px;
-      width: 36px;
-      height: 36px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
-      background: rgba(10, 15, 30, 0.75);
+      background: rgba(10, 15, 30, 0.78);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      border: 1px solid var(--border);
-      color: var(--text);
+      border: 1px solid rgba(0, 180, 216, 0.4);
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: zoom-in;
       z-index: 2;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .hero-media-zoom:hover {
+      background: rgba(10, 15, 30, 0.92);
+      border-color: rgba(0, 180, 216, 0.75);
     }
 
     .hero-media-tag {
@@ -561,7 +584,7 @@
       margin-top: 2.5rem;
       border-radius: 20px;
       overflow: hidden;
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 1551 / 1056;
       border: 1px solid rgba(0, 180, 216, 0.22);
       background: var(--accent-dim);
       box-shadow: 0 8px 50px rgba(0, 180, 216, 0.22);
@@ -598,25 +621,30 @@
       position: absolute;
       top: 12px;
       right: 12px;
-      width: 36px;
-      height: 36px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
-      background: rgba(10, 15, 30, 0.75);
+      background: rgba(10, 15, 30, 0.78);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      border: 1px solid var(--border);
-      color: var(--text);
+      border: 1px solid rgba(0, 180, 216, 0.4);
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: zoom-in;
       z-index: 2;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .preview-zoom:hover {
+      background: rgba(10, 15, 30, 0.92);
+      border-color: rgba(0, 180, 216, 0.75);
     }
 
     .preview-caption {
-      margin-top: 1rem;
+      margin-top: 16px;
       text-align: center;
-      color: var(--muted);
+      color: #A8B3C7;
       font-size: 0.9rem;
     }
 
@@ -1108,6 +1136,14 @@
         bottom: 12px;
       }
 
+      .hero-media-avatar {
+        width: 80px;
+        height: 80px;
+        right: -16px;
+        bottom: -16px;
+        border-width: 2px;
+      }
+
       .learn-grid {
         grid-template-columns: 1fr;
       }
@@ -1204,12 +1240,15 @@
           <p class="hero-sub-note fade-in" data-early-bird-only>Early-bird μόνο για τις πρώτες 30 θέσεις ή έως 6 Δεκεμβρίου. Μετά 39€.</p>
         </div>
 
-        <div class="hero-media fade-in" id="hero-media">
-          <img src="/assets/assetshero-pagida.png" alt="Σημειώσεις του σεμιναρίου Β Θεμάτων: η μέθοδος και οι παγίδες" id="hero-media-img" />
-          <button type="button" class="hero-media-zoom" id="hero-media-zoom" aria-label="Μεγέθυνση εικόνας">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-          </button>
-          <span class="hero-media-tag">Από τις σημειώσεις του σεμιναρίου</span>
+        <div class="hero-media-wrap fade-in">
+          <div class="hero-media" id="hero-media">
+            <img src="/assets/assetshero-pagida.png" alt="Σημειώσεις του σεμιναρίου Β Θεμάτων: η μέθοδος και οι παγίδες" id="hero-media-img" />
+            <button type="button" class="hero-media-zoom" id="hero-media-zoom" aria-label="Μεγέθυνση εικόνας">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+            </button>
+            <span class="hero-media-tag">Από τις σημειώσεις του σεμιναρίου</span>
+          </div>
+          <img class="hero-media-avatar" src="/assets/kostas-hero.jpg.webp" alt="Κωνσταντίνος Μπέλμπας" />
         </div>
       </div>
     </div>
@@ -1318,7 +1357,7 @@
         <img src="/assets/seminario-preview.jpg.jpg" alt="Λυμένο Θέμα Β2 Φυσικής Πανελληνίων 2026 στο tablet" id="preview-img" />
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
         <button type="button" class="preview-zoom" id="preview-zoom" aria-label="Μεγέθυνση εικόνας">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
         </button>
       </div>
 
@@ -2013,7 +2052,8 @@
       .from('.hero-buy', { y: 16, duration: 0.5, ease: 'power3.out' }, '-=0.25')
       .from('.hero-gift', { opacity: 0, y: 10, duration: 0.4, ease: 'power3.out' }, '-=0.2')
       .from('.hero-sub-note', { opacity: 0, y: 10, duration: 0.4, ease: 'power3.out' }, '-=0.2')
-      .from('.hero-media', { opacity: 0, scale: 0.96, duration: 0.6, ease: 'power3.out' }, '-=0.4');
+      .from('.hero-media', { opacity: 0, scale: 0.96, duration: 0.6, ease: 'power3.out' }, '-=0.4')
+      .from('.hero-media-avatar', { opacity: 0, scale: 0.9, duration: 0.5, ease: 'power3.out' }, '-=0.3');
 
     gsap.utils.toArray('.learn-grid .card, .curriculum-item').forEach(function (el, i) {
       gsap.from(el, {
