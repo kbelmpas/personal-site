@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <script>
+    const THANKS_CONFIG = {
+      GUIDE_LINK: "GUIDE_LINK_HERE",
+      CLUB_LINK: "CLUB_LINK_HERE"
+    };
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Η θέση σου είναι κλειδωμένη — Σεμινάριο Β Θεμάτων Φυσικής</title>
+  <meta name="description" content="Ευχαριστώ για την αγορά του σεμιναρίου Β Θεμάτων Φυσικής Πανελληνίων." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <style>
+    :root {
+      --bg: #0A0F1E;
+      --surface: #101A30;
+      --accent: #00B4D8;
+      --accent-dim: rgba(0, 180, 216, 0.14);
+      --border: rgba(255, 255, 255, 0.08);
+      --section-space: clamp(56px, 8vw, 96px);
+    }
+
+    .seminario-page .btn-primary {
+      background: linear-gradient(135deg, var(--accent) 0%, #48E0FA 100%);
+      color: #031018;
+      box-shadow: 0 4px 20px rgba(0, 180, 216, 0.3);
+    }
+
+    .seminario-page .btn-primary:hover {
+      box-shadow: 0 8px 30px rgba(0, 180, 216, 0.45);
+    }
+
+    .seminario-page .btn-outline {
+      border-color: rgba(0, 180, 216, 0.35);
+    }
+
+    .seminario-page .btn-outline:hover {
+      border-color: rgba(0, 180, 216, 0.6);
+    }
+
+    .seminario-page .card {
+      background: rgba(16, 26, 48, 0.55);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .topbar {
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      width: calc(100% - 2rem);
+      max-width: 1100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.6rem 1.25rem;
+      background: rgba(10, 15, 30, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+    }
+
+    .topbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+
+    .topbar-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px 2px rgba(0, 180, 216, 0.55);
+      flex-shrink: 0;
+    }
+
+    .topbar-brand-short {
+      display: none;
+    }
+
+    #thanks {
+      padding: calc(80px + 48px) 0 var(--section-space);
+    }
+
+    .thanks-container {
+      max-width: 620px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .thanks-title {
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .thanks-lead {
+      color: var(--muted);
+      font-size: 1.1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .thanks-gift-card {
+      text-align: center;
+      border-color: rgba(0, 180, 216, 0.4);
+      margin-bottom: 3rem;
+    }
+
+    .thanks-gift-card h3 {
+      margin-bottom: 0.6rem;
+    }
+
+    .thanks-gift-card p {
+      margin-bottom: 1.5rem;
+    }
+
+    .thanks-next h2 {
+      margin-bottom: 1rem;
+    }
+
+    .thanks-next p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .thanks-next .btn {
+      margin-top: 0.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .thanks-note {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .thanks-note a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .thanks-note a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.65rem;
+      padding: var(--section-space) 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem 1.1rem;
+    }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--accent);
+    }
+
+    @media (max-width: 768px) {
+      .topbar-brand-full {
+        display: none;
+      }
+
+      .topbar-brand-short {
+        display: inline;
+      }
+
+      #thanks {
+        padding-top: calc(80px + 32px);
+      }
+    }
+  </style>
+</head>
+<body class="seminario-page">
+
+  <div class="topbar">
+    <a href="/index.html" class="topbar-brand">
+      <span class="topbar-dot" aria-hidden="true"></span>
+      <span class="topbar-brand-full">Σεμινάριο Β Θεμάτων Φυσικής</span>
+      <span class="topbar-brand-short">Β Θέματα</span>
+    </a>
+  </div>
+
+  <section id="thanks">
+    <div class="container thanks-container">
+      <h1 class="thanks-title">Η θέση σου είναι κλειδωμένη</h1>
+      <p class="thanks-lead">Ευχαριστώ! Η πληρωμή ολοκληρώθηκε και η απόδειξη έρχεται στο email σου.</p>
+
+      <div class="card thanks-gift-card">
+        <h3>🎁 Το δώρο σου</h3>
+        <p>Ο Οδηγός Επιβίωσης Φυσικής είναι έτοιμος. Κατέβασέ τον τώρα.</p>
+        <a href="#" id="guide-link" target="_blank" rel="noopener" class="btn btn-primary">Κατέβασε τον Οδηγό</a>
+      </div>
+
+      <div class="thanks-next">
+        <h2>Τι ακολουθεί</h2>
+        <p>Αρχές Δεκεμβρίου σου στέλνω το σεμινάριο, το βίντεο και το PDF, στο email που έδωσες στην πληρωμή. Αν δεν το βρεις, κοίτα στα Ανεπιθύμητα.</p>
+        <p>Μέχρι τότε, δες πώς φτιάχνεται στο Newtonaki Club.</p>
+        <a href="#" id="club-link" target="_blank" rel="noopener" class="btn btn-outline">Μπες στο Newtonaki Club</a>
+      </div>
+
+      <p class="thanks-note">Αν χάσεις αυτή τη σελίδα ή κάτι δεν δουλεύει, στείλε μου μήνυμα στο Instagram <a href="https://instagram.com/kbelmpas" target="_blank" rel="noopener">@kbelmpas</a>.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Κωνσταντίνος Μπέλμπας · <a href="https://instagram.com/kbelmpas" target="_blank" rel="noopener">Instagram @kbelmpas</a></p>
+    <div class="footer-links">
+      <a href="/seminario/oroi">Όροι & Απόρρητο</a>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var guideLink = document.getElementById('guide-link');
+      if (guideLink) guideLink.href = THANKS_CONFIG.GUIDE_LINK;
+
+      var clubLink = document.getElementById('club-link');
+      if (clubLink) clubLink.href = THANKS_CONFIG.CLUB_LINK;
+    })();
+  </script>
+
+</body>
+</html>
