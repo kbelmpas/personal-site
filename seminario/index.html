@@ -7,7 +7,7 @@
       PRICE: "19€",
       PRICE_LABEL: "Early-bird · 30 θέσεις ή έως 6 Δεκεμβρίου",
       OLD_PRICE: "39€",
-      PAYMENT_LINK: "STRIPE_LINK_HERE",
+      PAYMENT_LINK: "https://buy.stripe.com/fZucN7dxR2Xf4Qkc6U7EQ06",
       EARLY_BIRD: true,
       PREVIEW_VIDEO_URL: "",
       HERO_VIDEO_URL: "",
@@ -1518,8 +1518,6 @@
 
       document.querySelectorAll('[data-buy]').forEach(function (el) {
         el.href = cfg.PAYMENT_LINK;
-        el.target = '_blank';
-        el.rel = 'noopener';
       });
 
       var previewMedia = document.getElementById('preview-media');
