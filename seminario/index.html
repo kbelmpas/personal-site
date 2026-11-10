@@ -174,7 +174,7 @@
     }
 
     #hero {
-      padding-top: calc(80px + var(--section-space));
+      padding-top: calc(80px + 32px);
       background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0, 180, 216, 0.16) 0%, transparent 70%);
     }
 
@@ -186,7 +186,7 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 2.5rem;
-      align-items: center;
+      align-items: start;
     }
 
     .hero-content {
@@ -198,7 +198,6 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 0.6rem;
-      margin-top: 48px;
       margin-bottom: 1.25rem;
     }
 
@@ -305,6 +304,10 @@
     }
 
     @media (min-width: 769px) {
+      #hero {
+        padding-top: calc(80px + 48px);
+      }
+
       .hero-grid {
         grid-template-columns: 1.05fr 0.95fr;
       }
@@ -1094,11 +1097,11 @@
 
   <section id="hero">
     <div class="container">
+      <div class="hero-badges fade-in">
+        <span class="section-label">Προπώληση · Γ' Λυκείου</span>
+      </div>
       <div class="hero-grid">
         <div class="hero-content">
-          <div class="hero-badges fade-in">
-            <span class="section-label">Προπώληση · Γ' Λυκείου</span>
-          </div>
           <h1 class="hero-title fade-in">Λύσε κάθε Β Θέμα Φυσικής με τα ίδια βήματα</h1>
           <p class="hero-sub fade-in">Σεμινάριο περίπου 3 ωρών για τη Γ' Λυκείου. Μαθαίνεις να βλέπεις τις παγίδες που στήνει ο εξεταστής και να γράφεις αιτιολόγηση που παίρνει όλες τις μονάδες.</p>
           <a href="#" data-buy class="btn btn-primary btn-large hero-buy fade-in" data-template="Κλείδωσε θέση με {PRICE}"></a>
