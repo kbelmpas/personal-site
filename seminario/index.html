@@ -72,6 +72,10 @@
       --section-space: clamp(56px, 8vw, 96px);
     }
 
+    .seminario-page {
+      overflow-x: hidden;
+    }
+
     .seminario-page section {
       padding: var(--section-space) 0;
     }
@@ -234,6 +238,10 @@
       font-size: 0.88rem;
     }
 
+    .hero-media-wrap {
+      position: relative;
+    }
+
     .hero-media {
       position: relative;
       border-radius: 20px;
@@ -241,6 +249,7 @@
       aspect-ratio: 4 / 3;
       border: 1px solid rgba(0, 180, 216, 0.22);
       background: var(--accent-dim);
+      box-shadow: 0 8px 50px rgba(0, 180, 216, 0.22);
     }
 
     .hero-media img {
@@ -248,32 +257,47 @@
       inset: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-    }
-
-    .hero-media-placeholder-text {
-      display: none;
-    }
-
-    .hero-media--placeholder {
-      background: transparent;
-      border: 1px dashed rgba(0, 180, 216, 0.35);
-    }
-
-    .hero-media--placeholder .hero-media-placeholder-text {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 10%;
-      color: var(--muted);
-      font-size: 0.85rem;
+      object-fit: contain;
     }
 
     .hero-media--video {
       aspect-ratio: 16 / 9;
+    }
+
+    .hero-avatar-tag {
+      position: absolute;
+      right: -24px;
+      bottom: -24px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      z-index: 2;
+    }
+
+    .hero-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 30%;
+      border: 3px solid var(--accent);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+      flex-shrink: 0;
+    }
+
+    .hero-avatar-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 0.82rem;
+      color: var(--text);
+      background: rgba(10, 15, 30, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 0.5rem 1rem;
+      white-space: nowrap;
     }
 
     .hero-media iframe {
@@ -1013,6 +1037,23 @@
         display: inline;
       }
 
+      .hero-avatar-tag {
+        right: -16px;
+        bottom: -16px;
+        gap: 0.4rem;
+      }
+
+      .hero-avatar {
+        width: 84px;
+        height: 84px;
+        border-width: 2px;
+      }
+
+      .hero-avatar-label {
+        font-size: 0.7rem;
+        padding: 0.4rem 0.75rem;
+      }
+
       .learn-grid {
         grid-template-columns: 1fr;
       }
@@ -1109,9 +1150,14 @@
           <p class="hero-sub-note fade-in" data-early-bird-only>Early-bird μόνο για τις πρώτες 30 θέσεις ή έως 6 Δεκεμβρίου. Μετά 39€.</p>
         </div>
 
-        <div class="hero-media fade-in" id="hero-media">
-          <img src="/images/seminario-preview.jpg" alt="Σημειώσεις του σεμιναρίου Β Θεμάτων στο tablet" onerror="this.style.display='none'; this.parentElement.classList.add('hero-media--placeholder');" />
-          <span class="hero-media-placeholder-text">Εικόνα: σημειώσεις στο tablet</span>
+        <div class="hero-media-wrap fade-in">
+          <div class="hero-media" id="hero-media">
+            <img src="/assets/seminario-preview.jpg.jpg" alt="Λυμένο Θέμα Β2 Φυσικής Πανελληνίων 2026 στο tablet" />
+          </div>
+          <div class="hero-avatar-tag">
+            <img class="hero-avatar" src="/assets/kostas-hero.jpg.webp" alt="Κωνσταντίνος Μπέλμπας" />
+            <span class="hero-avatar-label">Κωνσταντίνος Μπέλμπας · Φυσικός</span>
+          </div>
         </div>
       </div>
     </div>
@@ -1860,7 +1906,8 @@
       .from('.hero-buy', { y: 16, duration: 0.5, ease: 'power3.out' }, '-=0.25')
       .from('.hero-gift', { opacity: 0, y: 10, duration: 0.4, ease: 'power3.out' }, '-=0.2')
       .from('.hero-sub-note', { opacity: 0, y: 10, duration: 0.4, ease: 'power3.out' }, '-=0.2')
-      .from('.hero-media', { opacity: 0, scale: 0.96, duration: 0.6, ease: 'power3.out' }, '-=0.4');
+      .from('.hero-media', { opacity: 0, scale: 0.96, duration: 0.6, ease: 'power3.out' }, '-=0.4')
+      .from('.hero-avatar-tag', { opacity: 0, scale: 0.9, duration: 0.5, ease: 'power3.out' }, '-=0.3');
 
     gsap.utils.toArray('.learn-grid .card, .curriculum-item').forEach(function (el, i) {
       gsap.from(el, {
